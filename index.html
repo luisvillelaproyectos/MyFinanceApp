@@ -8,6 +8,11 @@
 <meta name="apple-mobile-web-app-title" content="Finanzas 2026">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#0a0a0f">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="apple-touch-icon" sizes="152x152" href="icons/icon-152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="icons/icon-167.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
 <!-- Splash screens para iPhone Pro Max y modelos modernos -->
 <link rel="apple-touch-startup-image" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
 <title>Finanzas 2026</title>
@@ -58,10 +63,8 @@
   .month-slide-in-left   { animation: slideInLeft  0.28s cubic-bezier(0.25,0.46,0.45,0.94) both; }
 
   /* Nav bar */
-  .navbar { position:absolute; bottom:0; left:0; right:0; background:rgb(13,13,20); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-top:1px solid var(--border); padding:8px 0 0; display:flex; justify-content:space-around; z-index:100; flex-shrink:0; }
+  .navbar { position:absolute; bottom:0; left:0; right:0; background:rgb(13,13,20); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-top:1px solid var(--border); padding:8px 0 0; padding-bottom: max(20px, env(safe-area-inset-bottom, 34px)); display:flex; justify-content:space-around; z-index:100; flex-shrink:0; }
   .navbar::after { content:''; position:absolute; bottom:-150px; left:0; right:0; height:150px; background:rgb(13,13,20); z-index:-1; }
-  /* PWA mode: navbar extends to physical bottom */
-  body.is-pwa .navbar { padding-bottom: env(safe-area-inset-bottom, 34px); }
   .nav-bar { padding-bottom: max(20px, env(safe-area-inset-bottom)); }
   .nav-item { display:flex; flex-direction:column; align-items:center; gap:3px; padding:4px 16px; cursor:pointer; transition:all 0.2s; }
   .nav-icon { font-size:22px; transition:transform 0.2s; }
@@ -2920,6 +2923,15 @@ window.addEventListener('orientationchange', () => {
   setTimeout(() => window.dispatchEvent(new Event('resize')), 300);
   setTimeout(() => window.dispatchEvent(new Event('resize')), 600);
 });
+
+// Registrar Service Worker para PWA offline
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(() => console.log('SW registrado'))
+      .catch(err => console.log('SW error:', err));
+  });
+}
 </script>
 </body>
 </html>
