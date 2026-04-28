@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<!-- saved from url=(0041)file:///Users/luis/Downloads/index_1.html -->
-<html lang="es" style="--accent: #e11d48; --accent2: #fb7185; --accent2-rgb: 251,113,133; --app-height: 963px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="es">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Finanzas 2026">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#0a0a0f">
-<link rel="manifest" href="file:///Users/luis/Downloads/manifest.json">
-<link rel="apple-touch-icon" href="file:///Users/luis/Downloads/icons/icon-180.png">
-<link rel="apple-touch-icon" sizes="152x152" href="file:///Users/luis/Downloads/icons/icon-152.png">
-<link rel="apple-touch-icon" sizes="167x167" href="file:///Users/luis/Downloads/icons/icon-167.png">
-<link rel="apple-touch-icon" sizes="180x180" href="file:///Users/luis/Downloads/icons/icon-180.png">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="apple-touch-icon" sizes="152x152" href="icons/icon-152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="icons/icon-167.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
 <!-- Splash screens para iPhone Pro Max y modelos modernos -->
 <link rel="apple-touch-startup-image" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
 <title>Finanzas 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="./index_files/css2" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0a0a0f;
@@ -52,7 +52,7 @@
   /* Screens */
   .screen { flex:1; overflow:hidden; display:flex; flex-direction:column; position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; pointer-events:none; transition:opacity 0.3s ease; }
   .screen.active { opacity:1; pointer-events:all; position:relative; }
-  .scroll-area { flex:1; overflow-y:auto; padding:0 16px 100px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .scroll-area { flex:1; min-height:0; overflow-y:auto; padding:0 16px 100px; -webkit-overflow-scrolling:touch; scrollbar-width:none; overscroll-behavior:contain; }
   .scroll-area::-webkit-scrollbar { display:none; }
 
   /* Month swipe animation */
@@ -252,71 +252,90 @@
   <div class="screen active" id="screen-home">
     <div class="page-header">
       <div class="page-title">Finanzas <span id="year-label" style="color:var(--accent2);cursor:pointer;border-bottom:1px dashed var(--accent2)" onclick="openYearModal()">2026</span></div>
-      <div class="page-subtitle" id="home-subtitle">FEBRERO</div>
+      <div class="page-subtitle" id="home-subtitle">Mes actual</div>
     </div>
 
     <!-- Month selector -->
-    <div class="month-selector" id="month-selector-home"><div class="month-chip " onclick="selectMonth(0)">Ene</div><div class="month-chip active" onclick="selectMonth(1)">Feb</div><div class="month-chip " onclick="selectMonth(2)">Mar</div><div class="month-chip " onclick="selectMonth(3)">Abr</div><div class="month-chip " onclick="selectMonth(4)">May</div><div class="month-chip " onclick="selectMonth(5)">Jun</div><div class="month-chip " onclick="selectMonth(6)">Jul</div><div class="month-chip " onclick="selectMonth(7)">Ago</div><div class="month-chip " onclick="selectMonth(8)">Sep</div><div class="month-chip " onclick="selectMonth(9)">Oct</div><div class="month-chip " onclick="selectMonth(10)">Nov</div><div class="month-chip " onclick="selectMonth(11)">Dic</div></div>
+    <div class="month-selector" id="month-selector-home"></div>
 
     <div class="scroll-area">
       <!-- Saldo card -->
-      <div class="saldo-card" style="position: relative; background: linear-gradient(135deg, rgb(76, 5, 25) 0%, rgb(159, 18, 57) 60%, rgb(225, 29, 72) 100%);">
+      <div class="saldo-card" style="position:relative">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0">
           <div class="saldo-label">SALDO ACTUAL</div>
           <button id="eye-toggle-btn" onclick="toggleSaldoVisibility()" style="background:rgba(255,255,255,0.12);border:none;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background 0.2s" title="Ocultar datos">
-            <svg id="eye-icon-open" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-            <svg id="eye-icon-closed" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+            <svg id="eye-icon-open" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg id="eye-icon-closed" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
           </button>
         </div>
         <div id="saldo-sensitive-wrap">
-          <div class="saldo-value" id="saldo-value">$299,635.81</div>
-          <div class="saldo-sub" id="saldo-usd">$16,463.51 USD</div>
+          <div class="saldo-value" id="saldo-value">$0</div>
+          <div class="saldo-sub" id="saldo-usd">$0 USD</div>
         </div>
         <div class="saldo-row" id="saldo-row-sensitive">
           <div class="saldo-item">
             <div class="saldo-item-label">Ingresos</div>
-            <div class="saldo-item-value" id="saldo-ingresos">$72,259.92</div>
+            <div class="saldo-item-value" id="saldo-ingresos">$0</div>
           </div>
           <div class="saldo-item">
             <div class="saldo-item-label">Gastos</div>
-            <div class="saldo-item-value" id="saldo-gastos">$42,792</div>
+            <div class="saldo-item-value" id="saldo-gastos">$0</div>
           </div>
           <div class="saldo-item">
             <div class="saldo-item-label">Ahorro</div>
-            <div class="saldo-item-value" id="saldo-ahorro">$29,467.92</div>
+            <div class="saldo-item-value" id="saldo-ahorro">$0</div>
           </div>
         </div>
       </div>
 
       <!-- Pct cards -->
       <div class="summary-grid">
-        <div class="summary-card" onclick="goTo(&#39;gastos&#39;)" style="cursor:pointer">
+        <div class="summary-card" onclick="goTo('gastos')" style="cursor:pointer">
           <div class="summary-label">% GASTOS</div>
-          <div class="summary-value red" id="pct-gastos">59.2%</div>
+          <div class="summary-value red" id="pct-gastos">--%</div>
           <div class="progress-wrap">
-            <div class="progress-bar"><div class="progress-fill red" id="bar-gastos" style="width: 59.2196%;"></div></div>
+            <div class="progress-bar"><div class="progress-fill red" id="bar-gastos" style="width:0%"></div></div>
           </div>
         </div>
-        <div class="summary-card" style="cursor:pointer" onclick="(function(){const el=document.getElementById(&#39;home-ahorro-card&#39;);const scroll=document.querySelector(&#39;#screen-home .scroll-area&#39;);if(el&amp;&amp;scroll)scroll.scrollTo({top:el.offsetTop-12,behavior:&#39;smooth&#39;});})()">
+        <div class="summary-card" style="cursor:pointer" onclick="(function(){const el=document.getElementById('home-ahorro-card');const scroll=document.querySelector('#screen-home .scroll-area');if(el&&scroll)scroll.scrollTo({top:el.offsetTop-12,behavior:'smooth'});})()">
           <div class="summary-label">% AHORRO</div>
-          <div class="summary-value green" id="pct-ahorro">40.8%</div>
+          <div class="summary-value green" id="pct-ahorro">--%</div>
           <div class="progress-wrap">
-            <div class="progress-bar"><div class="progress-fill green" id="bar-ahorro" style="width: 40.7804%;"></div></div>
+            <div class="progress-bar"><div class="progress-fill green" id="bar-ahorro" style="width:0%"></div></div>
           </div>
         </div>
       </div>
 
       <!-- Presupuesto compacto home -->
-      <div id="presupuesto-home-card" style="display: block; margin-bottom: 8px;">
-        <div class="card" style="cursor:pointer" onclick="toggleEditPresupuesto()">
+      <div id="presupuesto-home-card" style="display:none;margin-bottom:8px">
+        <div class="card" id="presupuesto-top-card" style="margin-bottom:0">
+          <!-- Header: title + % label + edit icon -->
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
             <div style="font-size:13px;font-weight:600;color:var(--text)">Presupuesto del Mes</div>
-            <div style="font-size:12px;color:var(--text3)" id="presupuesto-home-label"><span style="color:var(--text3)">Sin definir</span></div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <div style="font-size:12px;color:var(--text3)" id="presupuesto-home-label">—</div>
+              <button id="pres-edit-btn" onclick="toggleEditPresupuesto()" title="Editar presupuesto"
+                style="display:none;background:none;border:none;color:var(--text3);cursor:pointer;padding:2px;display:flex;align-items:center;opacity:0.55;flex-shrink:0">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              </button>
+            </div>
           </div>
-          <div style="background:var(--surface3);border-radius:99px;height:6px;overflow:hidden;margin-bottom:6px">
-            <div id="presupuesto-home-bar" style="height: 100%; border-radius: 99px; width: 0%; transition: width 0.5s, background 0.3s; background: rgba(var(--accent2-rgb,168,85,247),0.30);"></div>
+          <!-- Bar + sub: click area to toggle breakdown or open modal -->
+          <div id="pres-bar-area" onclick="onPresCardClick()" style="cursor:pointer">
+            <div style="background:var(--surface3);border-radius:99px;height:6px;overflow:hidden;margin-bottom:6px">
+              <div id="presupuesto-home-bar" style="height:100%;border-radius:99px;width:0%;transition:width 0.5s,background 0.3s"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div style="font-size:12px;color:var(--text2)" id="presupuesto-home-sub">Toca para definir presupuesto</div>
+              <div id="pres-expand-chevron" style="display:none;color:var(--text3);transition:transform 0.25s;flex-shrink:0;margin-left:6px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
           </div>
-          <div style="font-size:12px;color:var(--text2)" id="presupuesto-home-sub">Toca para definir presupuesto</div>
+        </div>
+        <!-- Category breakdown (collapsible, state persisted) -->
+        <div id="presupuesto-cats-card" style="display:none;background:var(--surface);border-radius:0 0 var(--radius) var(--radius);border:1px solid var(--border);border-top:none;padding:12px 16px 14px">
+          <div id="presupuesto-cats-list"></div>
         </div>
       </div>
 
@@ -329,52 +348,52 @@
           <div style="display:flex;align-items:center;gap:8px">
             <span class="label">Inicio de Mes</span>
             <button onclick="openEditInicioMes()" style="background:none;border:none;color:var(--text3);cursor:pointer;padding:2px;display:flex;align-items:center;opacity:0.5">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
             </button>
           </div>
-          <span class="value" id="inicio-mes">$270,167.89</span>
+          <span class="value" id="inicio-mes">$0</span>
         </div>
 
         <!-- 2. (+) Ingresos -->
-        <div class="estado-row" onclick="goTo(&#39;ingresos&#39;)" style="cursor:pointer">
+        <div class="estado-row" onclick="goTo('ingresos')" style="cursor:pointer">
           <span class="label">(+) Ingresos del Mes</span>
-          <span class="value green" id="ingresos-estado">$72,259.92</span>
+          <span class="value green" id="ingresos-estado">$0</span>
         </div>
 
         <!-- 3. (-) Gastos del Mes -->
         <div class="estado-row">
           <span class="label">(-) Gastos del Mes</span>
-          <span class="value red" id="gastos-mes-estado">$42,792</span>
+          <span class="value red" id="gastos-mes-estado">$0</span>
         </div>
 
         <!-- 4a. Retiros Efectivo -->
         <div class="estado-row" style="flex-direction:column;align-items:stretch;gap:0">
-          <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="toggleDetalle(&#39;retiros-detalle&#39;)">
+          <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="toggleDetalle('retiros-detalle')">
             <div style="display:flex;align-items:center;gap:6px">
               <span class="label">(–) Retiros de Efectivo</span>
-              <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.2s" id="retiros-chevron"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+              <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.2s" id="retiros-chevron"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
             </div>
             <span class="value red" id="retiros">$0</span>
           </div>
-          <div id="retiros-detalle" style="display:none;margin-top:6px;padding-left:8px;border-left:2px solid rgba(240,64,96,0.3)"><div style="font-size:11px;color:var(--text3);padding:4px 0">Sin registros</div></div>
+          <div id="retiros-detalle" style="display:none;margin-top:6px;padding-left:8px;border-left:2px solid rgba(240,64,96,0.3)"></div>
         </div>
 
         <!-- 4b. Gastos Reembolsables (pendientes) -->
         <div class="estado-row" style="flex-direction:column;align-items:stretch;gap:0">
-          <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="toggleDetalle(&#39;reem-detalle&#39;)">
+          <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="toggleDetalle('reem-detalle')">
             <div style="display:flex;align-items:center;gap:6px">
               <span class="label">(–) Gastos Reembolsables</span>
-              <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.2s" id="reem-chevron"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+              <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.2s" id="reem-chevron"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
             </div>
             <span class="value red" id="gastos-reem">$0</span>
           </div>
-          <div id="reem-detalle" style="display:none;margin-top:6px;padding-left:8px;border-left:2px solid rgba(240,64,96,0.3)"><div style="font-size:11px;color:var(--text3);padding:4px 0">Sin reembolsables pendientes</div></div>
+          <div id="reem-detalle" style="display:none;margin-top:6px;padding-left:8px;border-left:2px solid rgba(240,64,96,0.3)"></div>
         </div>
 
         <!-- Saldo final -->
         <div class="estado-row" style="border-top:1px solid var(--border);margin-top:8px;padding-top:12px;">
           <span style="font-weight:700">Saldo Actual</span>
-          <span class="value green" id="saldo-actual-estado">$299,635.81</span>
+          <span class="value green" id="saldo-actual-estado">$0</span>
         </div>
       </div>
 
@@ -384,59 +403,35 @@
           <div>
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
               <div class="card-title" style="margin-bottom:0">Progreso de Ahorro</div>
-              <div id="ahorro-este-mes-badge" style="font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 99px; color: var(--green); background: rgba(34, 211, 160, 0.12);">+$29,467.92 Feb</div>
+              <div id="ahorro-este-mes-badge" style="font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px;display:none">$0</div>
             </div>
             <div style="font-size:11px;color:var(--text3)">Acumulado en el año</div>
           </div>
           <div style="text-align:right">
             <div style="font-size:11px;color:var(--text3);margin-bottom:2px">Meta anual</div>
-            <div style="font-size:13px;font-weight:700;color:var(--accent2)" id="ahorro-meta-label">$200,000</div>
+            <div style="font-size:13px;font-weight:700;color:var(--accent2)" id="ahorro-meta-label">$0</div>
           </div>
         </div>
 
         <!-- Big ahorro number -->
         <div style="margin-bottom:14px">
-          <div style="font-size:30px;font-weight:800;color:var(--accent2);letter-spacing:-1px;line-height:1" id="ahorro-acum">$98,166.6</div>
-          <div style="font-size:12px;color:var(--accent2);opacity:0.6;margin-top:3px" id="ahorro-acum-usd">$5,393.77 USD</div>
+          <div style="font-size:30px;font-weight:800;color:var(--accent2);letter-spacing:-1px;line-height:1" id="ahorro-acum">$0</div>
+          <div style="font-size:12px;color:var(--accent2);opacity:0.6;margin-top:3px" id="ahorro-acum-usd">$0 USD</div>
         </div>
 
         <!-- Progress bar -->
         <div style="margin-bottom:14px">
           <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text3);margin-bottom:6px">
-            <span id="ahorro-pct-label">49.1% de la meta</span>
-            <span id="ahorro-falta-label">Faltan $101,833.4</span>
+            <span id="ahorro-pct-label">0% de la meta</span>
+            <span id="ahorro-falta-label">Faltan $0</span>
           </div>
           <div style="background:var(--surface3);border-radius:99px;height:8px;overflow:hidden">
-            <div id="ahorro-progress-bar" style="height: 100%; border-radius: 99px; background: linear-gradient(90deg,var(--accent),var(--accent2)); transition: width 0.6s; width: 49.0833%;"></div>
+            <div id="ahorro-progress-bar" style="height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width 0.6s ease;width:0%"></div>
           </div>
         </div>
 
         <!-- Monthly breakdown mini bars -->
-        <div style="display:flex;gap:4px;align-items:flex-end;height:36px" id="ahorro-mini-bars"><div onclick="state.currentMonth=0;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:36px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=1;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:15px;background:var(--accent2);opacity:1;border-radius:3px 3px 0 0;transition:all 0.2s;box-shadow:0 0 6px var(--accent2)"></div>
-    </div><div onclick="state.currentMonth=2;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:4px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=3;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:5px;background:rgba(240,64,96,0.3);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=4;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:3px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=5;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:3px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=6;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:3px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=7;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:3px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=8;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:3px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=9;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:3px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=10;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:3px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=11;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:3px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div></div>
+        <div style="display:flex;gap:4px;align-items:flex-end;height:36px" id="ahorro-mini-bars"></div>
         <div style="display:flex;justify-content:space-between;margin-top:4px">
           <div style="font-size:10px;color:var(--text3)">Ene</div>
           <div style="font-size:10px;color:var(--text3)">Dic</div>
@@ -456,7 +451,7 @@
           <div id="rend-chip" style="display:none;font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;letter-spacing:0.3px"></div>
         </div>
         <div class="rend-value" id="rendimientos-home">$0</div>
-        <div id="rend-diff" style="font-size: 11px; color: var(--text2); margin-top: 4px; opacity: 1;">Inversiones</div>
+        <div id="rend-diff" style="font-size:11px;color:var(--text3);margin-top:4px">Inversiones</div>
       </div>
 
       <!-- Mes anterior comparison -->
@@ -464,18 +459,18 @@
         <div class="summary-card" id="vs-ing-card">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
             <div style="font-size:10px;font-weight:600;color:var(--text3);letter-spacing:0.6px;text-transform:uppercase">Ingreso</div>
-            <div id="vs-ing-chip" style="display: block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 99px; letter-spacing: 0.3px; color: var(--red); background: rgba(240, 64, 96, 0.15);">▼ -40.5%</div>
+            <div id="vs-ing-chip" style="display:none;font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;letter-spacing:0.3px"></div>
           </div>
-          <div id="vs-ingreso" style="font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--red);">-40.5%</div>
-          <div id="vs-ing-diff" style="font-size: 11px; margin-top: 4px; color: var(--red); opacity: 0.7;">-$49,230.76 vs ant.</div>
+          <div id="vs-ingreso" style="font-size:22px;font-weight:800;letter-spacing:-0.5px;color:var(--text2)">--</div>
+          <div id="vs-ing-diff" style="font-size:11px;margin-top:4px;color:var(--text3)">vs mes anterior</div>
         </div>
         <div class="summary-card" id="vs-gas-card">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
             <div style="font-size:10px;font-weight:600;color:var(--text3);letter-spacing:0.6px;text-transform:uppercase">Gasto</div>
-            <div id="vs-gas-chip" style="display: block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 99px; letter-spacing: 0.3px; color: var(--green); background: rgba(34, 211, 160, 0.15);">▼ -18.9%</div>
+            <div id="vs-gas-chip" style="display:none;font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;letter-spacing:0.3px"></div>
           </div>
-          <div id="vs-gasto" style="font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--green);">-18.9%</div>
-          <div id="vs-gas-diff" style="font-size: 11px; margin-top: 4px; color: var(--green); opacity: 0.7;">-$10,000 vs ant.</div>
+          <div id="vs-gasto" style="font-size:22px;font-weight:800;letter-spacing:-0.5px;color:var(--text2)">--</div>
+          <div id="vs-gas-diff" style="font-size:11px;margin-top:4px;color:var(--text3)">vs mes anterior</div>
         </div>
       </div>
     </div>
@@ -487,17 +482,19 @@
       <div style="display:flex;align-items:center;justify-content:space-between">
         <div class="page-title">Gastos</div>
         <button id="search-gastos-btn" onclick="toggleGastosSearch()" style="background:var(--surface2);border:1px solid var(--border);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;flex-shrink:0" title="Buscar gasto">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text2)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text2)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </button>
       </div>
       <!-- Search bar (hidden by default) -->
       <div id="gastos-search-bar" style="display:none;margin-top:10px;position:relative">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--text3)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);pointer-events:none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input id="gastos-search-input" type="text" placeholder="Buscar gasto por nombre…" autocomplete="off" oninput="onGastosSearch(this.value)" style="width:100%;background:var(--surface2);border:1px solid var(--accent);border-radius:var(--radius-sm);padding:10px 36px 10px 36px;font-size:14px;color:var(--text);font-family:inherit;outline:none;-webkit-appearance:none">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--text3)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);pointer-events:none"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="gastos-search-input" type="text" placeholder="Buscar gasto por nombre…" autocomplete="off"
+          oninput="onGastosSearch(this.value)"
+          style="width:100%;background:var(--surface2);border:1px solid var(--accent);border-radius:var(--radius-sm);padding:10px 36px 10px 36px;font-size:14px;color:var(--text);font-family:inherit;outline:none;-webkit-appearance:none">
         <button id="gastos-search-clear" onclick="clearGastosSearch()" style="display:none;position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text3);font-size:16px;cursor:pointer;padding:2px 4px;line-height:1">✕</button>
       </div>
     </div>
-    <div class="month-selector" id="month-selector-gastos"><div class="month-chip " onclick="selectMonth(0)">Ene</div><div class="month-chip active" onclick="selectMonth(1)">Feb</div><div class="month-chip " onclick="selectMonth(2)">Mar</div><div class="month-chip " onclick="selectMonth(3)">Abr</div><div class="month-chip " onclick="selectMonth(4)">May</div><div class="month-chip " onclick="selectMonth(5)">Jun</div><div class="month-chip " onclick="selectMonth(6)">Jul</div><div class="month-chip " onclick="selectMonth(7)">Ago</div><div class="month-chip " onclick="selectMonth(8)">Sep</div><div class="month-chip " onclick="selectMonth(9)">Oct</div><div class="month-chip " onclick="selectMonth(10)">Nov</div><div class="month-chip " onclick="selectMonth(11)">Dic</div></div>
+    <div class="month-selector" id="month-selector-gastos"></div>
     <div class="scroll-area" id="gastos-scroll">
 
       <!-- Total gastos banner -->
@@ -512,8 +509,8 @@
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
           <div class="card-title" style="margin-bottom:0">Análisis por Categoría</div>
           <div style="display:flex;align-items:center;background:var(--surface3);border-radius:99px;padding:3px;gap:2px">
-            <button id="cat-mode-ing" onclick="setCatMode(&#39;ing&#39;)" style="border:none;border-radius:99px;padding:4px 10px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;background:var(--surface);color:var(--text);transition:all 0.2s">vs Ingreso</button>
-            <button id="cat-mode-gas" onclick="setCatMode(&#39;gas&#39;)" style="border:none;border-radius:99px;padding:4px 10px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;background:transparent;color:var(--text3);transition:all 0.2s">vs Gasto</button>
+            <button id="cat-mode-ing" onclick="setCatMode('ing')" style="border:none;border-radius:99px;padding:4px 10px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;background:var(--surface);color:var(--text);transition:all 0.2s">vs Ingreso</button>
+            <button id="cat-mode-gas" onclick="setCatMode('gas')" style="border:none;border-radius:99px;padding:4px 10px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;background:transparent;color:var(--text3);transition:all 0.2s">vs Gasto</button>
           </div>
         </div>
         <div id="cat-analysis-list"></div>
@@ -545,7 +542,7 @@
         </div>
         <!-- Search results notice -->
         <div id="gastos-search-notice" style="display:none;font-size:12px;color:var(--accent2);margin-bottom:10px;display:flex;align-items:center;gap:6px">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           <span id="gastos-search-notice-text"></span>
         </div>
         <div id="gastos-variables-list">
@@ -560,7 +557,9 @@
           <span style="font-size:12px;color:var(--text2)">Total retiros</span>
           <span style="font-size:16px;font-weight:700;color:var(--red)" id="retiros-total-mxn">$0</span>
         </div>
-        <div id="retiros-full-list"><div class="empty-state"><div class="empty-icon">💵</div><div class="empty-text">Sin retiros este mes</div></div></div>
+        <div id="retiros-full-list">
+          <div class="empty-state"><div class="empty-icon">💵</div><div class="empty-text">Sin retiros este mes</div></div>
+        </div>
       </div>
 
       <!-- Gastos Reembolsables -->
@@ -570,11 +569,13 @@
           <span style="font-size:12px;color:var(--text2)">Total reembolsables</span>
           <span style="font-size:16px;font-weight:700;color:var(--red)" id="reem-total-mxn">$0</span>
         </div>
-        <div id="reem-full-list"><div class="empty-state"><div class="empty-icon">🔄</div><div class="empty-text">Sin reembolsables este mes</div></div></div>
+        <div id="reem-full-list">
+          <div class="empty-state"><div class="empty-icon">🔄</div><div class="empty-text">Sin reembolsables este mes</div></div>
+        </div>
       </div>
     </div>
     <!-- FAB -->
-    <button class="fab" onclick="openModal(&#39;gasto&#39;)" id="fab-gasto" style="box-shadow: rgba(225, 29, 72, 0.5) 0px 4px 20px;">＋</button>
+    <button class="fab" onclick="openModal('gasto')" id="fab-gasto">＋</button>
   </div>
 
   <!-- ===== SCREEN: INGRESOS ===== -->
@@ -582,7 +583,7 @@
     <div class="page-header">
       <div class="page-title">Ingresos</div>
     </div>
-    <div class="month-selector" id="month-selector-ingresos"><div class="month-chip " onclick="selectMonth(0)">Ene</div><div class="month-chip active" onclick="selectMonth(1)">Feb</div><div class="month-chip " onclick="selectMonth(2)">Mar</div><div class="month-chip " onclick="selectMonth(3)">Abr</div><div class="month-chip " onclick="selectMonth(4)">May</div><div class="month-chip " onclick="selectMonth(5)">Jun</div><div class="month-chip " onclick="selectMonth(6)">Jul</div><div class="month-chip " onclick="selectMonth(7)">Ago</div><div class="month-chip " onclick="selectMonth(8)">Sep</div><div class="month-chip " onclick="selectMonth(9)">Oct</div><div class="month-chip " onclick="selectMonth(10)">Nov</div><div class="month-chip " onclick="selectMonth(11)">Dic</div></div>
+    <div class="month-selector" id="month-selector-ingresos"></div>
     <div class="scroll-area">
 
       <!-- Total ingresos banner -->
@@ -595,12 +596,12 @@
       <div class="card">
         <div class="card-title">Ingresos del Mes</div>
         <div id="ingresos-list">
-          <div class="empty-state"><div class="empty-icon" style="font-size:0;display:flex;justify-content:center;margin-bottom:12px"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--text3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg></div><div class="empty-text">No hay ingresos registrados</div></div>
+          <div class="empty-state"><div class="empty-icon" style="font-size:0;display:flex;justify-content:center;margin-bottom:12px"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--text3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></div><div class="empty-text">No hay ingresos registrados</div></div>
         </div>
       </div>
 
     </div>
-    <button class="fab" onclick="openModal(&#39;ingreso&#39;)">＋</button>
+    <button class="fab" onclick="openModal('ingreso')">＋</button>
   </div>
 
   <!-- ===== SCREEN: ANÁLISIS ===== -->
@@ -628,7 +629,7 @@
               </div>
               <div style="display:flex;align-items:center;gap:4px;color:rgba(34,211,160,0.6);font-size:10px;font-weight:600">
                 <span id="ing-desglose-chevron-label">VER FUENTES</span>
-                <svg id="ing-desglose-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transition:transform 0.25s"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg id="ing-desglose-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transition:transform 0.25s"><polyline points="6 9 12 15 18 9"/></svg>
               </div>
             </div>
           </div>
@@ -666,7 +667,7 @@
               </div>
               <div style="display:flex;align-items:center;gap:4px;color:rgba(240,64,96,0.6);font-size:10px;font-weight:600">
                 <span id="gas-desglose-chevron-label">VER CATEGORÍAS</span>
-                <svg id="gas-desglose-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transition:transform 0.25s"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg id="gas-desglose-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transition:transform 0.25s"><polyline points="6 9 12 15 18 9"/></svg>
               </div>
             </div>
           </div>
@@ -685,8 +686,8 @@
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
               <div style="font-size:10px;font-weight:600;color:rgba(240,64,96,0.5);text-transform:uppercase;letter-spacing:0.8px">Gastos por Categoría — Anual</div>
               <div style="display:flex;background:var(--surface3);border-radius:99px;padding:3px;gap:2px">
-                <button id="cat-view-list-btn" onclick="setCatView(&#39;list&#39;);event.stopPropagation()" style="border:none;border-radius:99px;padding:4px 10px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;background:#0a0a0f;color:#ffffff;transition:all 0.2s">≡ Lista</button>
-                <button id="cat-view-pie-btn" onclick="setCatView(&#39;pie&#39;);event.stopPropagation()" style="border:none;border-radius:99px;padding:4px 10px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;background:transparent;color:var(--text3);transition:all 0.2s">◉ Pie</button>
+                <button id="cat-view-list-btn" onclick="setCatView('list');event.stopPropagation()" style="border:none;border-radius:99px;padding:4px 10px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;background:#0a0a0f;color:#ffffff;transition:all 0.2s">≡ Lista</button>
+                <button id="cat-view-pie-btn" onclick="setCatView('pie');event.stopPropagation()" style="border:none;border-radius:99px;padding:4px 10px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;background:transparent;color:var(--text3);transition:all 0.2s">◉ Pie</button>
               </div>
             </div>
             <div id="year-cat-list"></div>
@@ -694,16 +695,16 @@
         </div>
       </div>
 
-      <div id="big-stat-ahorro" style="background: rgb(26, 26, 36); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 10px; box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 16px;">
+      <div id="big-stat-ahorro" style="background:#1a1a24;border:1px solid rgba(168,85,247,0.4);border-radius:var(--radius);padding:18px 20px;margin-bottom:10px;box-shadow:0 2px 16px rgba(0,0,0,0.4)">
         <div style="display:flex;justify-content:space-between;align-items:flex-start">
           <div>
-            <div id="ahorro-title-label" style="font-size: 11px; font-weight: 600; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px;">◈ Ahorro Total</div>
-            <div style="font-size: 30px; font-weight: 800; color: rgb(255, 255, 255); letter-spacing: -1px; line-height: 1;" id="year-ahorros">$0</div>
-            <div style="font-size: 12px; color: rgba(255, 255, 255, 0.55); margin-top: 4px;" id="year-ahorros-usd">$0 USD</div>
+            <div id="ahorro-title-label" style="font-size:11px;font-weight:600;color:var(--accent2);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px">◈ Ahorro Total</div>
+            <div style="font-size:30px;font-weight:800;color:var(--text);letter-spacing:-1px;line-height:1" id="year-ahorros">$0</div>
+            <div style="font-size:12px;color:var(--text2);margin-top:4px" id="year-ahorros-usd">$0 USD</div>
           </div>
           <div style="text-align:right">
             <div style="font-size:10px;color:var(--text2);margin-bottom:4px">Promedio mensual</div>
-            <div style="font-size: 16px; font-weight: 700; color: rgb(255, 255, 255);" id="avg-ahorros">$0</div>
+            <div style="font-size:16px;font-weight:700;color:var(--accent2)" id="avg-ahorros">$0</div>
           </div>
         </div>
         <div style="margin-top:14px">
@@ -711,7 +712,7 @@
             <span>Tasa de ahorro</span><span id="pct-ahorro-year">0%</span>
           </div>
           <div style="background:rgba(255,255,255,0.08);border-radius:99px;height:4px;overflow:hidden">
-            <div id="bar-aho-fill" style="height: 100%; background: rgba(255, 255, 255, 0.5); border-radius: 99px; transition: width 0.5s;"></div>
+            <div id="bar-aho-fill" style="height:100%;background:var(--accent2);border-radius:99px;transition:width 0.5s"></div>
           </div>
         </div>
       </div>
@@ -769,17 +770,17 @@
 
 
       <div class="card" style="padding:0;overflow:hidden;margin-bottom:8px">
-        <div onclick="togglePanel(&#39;fijos&#39;)" style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer">
+        <div onclick="togglePanel('fijos')" style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer">
           <div style="display:flex;align-items:center;gap:10px">
             <span style="font-size:13px;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:0.5px">Gastos Fijos</span>
           </div>
           <div style="display:flex;align-items:center;gap:10px">
-            <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.25s" id="fijos-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+            <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.25s" id="fijos-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
           </div>
         </div>
         <div id="fijos-panel" style="display:none;border-top:1px solid var(--border)">
           <div style="padding:10px 16px 6px;display:flex;justify-content:space-between;align-items:center">
-            <div id="fijos-color-dot" onclick="openFijosColorModal()" style="width:14px;height:14px;border-radius:4px;background:${CAT_COLORS[&#39;Gastos Fijos&#39;]||&#39;#7c5cfc&#39;};cursor:pointer;border:2px solid rgba(255,255,255,0.15)" title="Cambiar color"></div>
+            <div id="fijos-color-dot" onclick="openFijosColorModal()" style="width:14px;height:14px;border-radius:4px;background:${CAT_COLORS['Gastos Fijos']||'#7c5cfc'};cursor:pointer;border:2px solid rgba(255,255,255,0.15)" title="Cambiar color"></div>
             <button onclick="openAddFijo()" style="background:var(--accent);border:none;color:white;border-radius:99px;padding:4px 12px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">＋ Nuevo</button>
           </div>
           <div id="fijos-config-list"></div>
@@ -787,10 +788,10 @@
       </div>
 
       <div class="card" style="padding:0;overflow:hidden;margin-bottom:8px">
-        <div onclick="togglePanel(&#39;cats&#39;)" style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer">
+        <div onclick="togglePanel('cats')" style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer">
           <span style="font-size:13px;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:0.5px">Categorías de Gastos Variables</span>
           <div style="display:flex;align-items:center;gap:10px">
-            <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.25s" id="cats-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+            <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.25s" id="cats-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
           </div>
         </div>
         <div id="cats-panel" style="display:none;border-top:1px solid var(--border)">
@@ -805,7 +806,7 @@
         <div onclick="toggleConceptosPanel()" style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer">
           <span style="font-size:13px;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:0.5px">Conceptos de Ingresos</span>
           <div style="display:flex;align-items:center;gap:10px">
-            <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.25s" id="conceptos-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+            <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.25s" id="conceptos-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
           </div>
         </div>
         <div id="conceptos-panel" style="display:none;border-top:1px solid var(--border)">
@@ -817,10 +818,10 @@
       </div>
 
       <div class="card" style="padding:0;overflow:hidden;margin-bottom:8px">
-        <div onclick="togglePanel(&#39;rend&#39;)" style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer">
+        <div onclick="togglePanel('rend')" style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer">
           <span style="font-size:13px;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:0.5px">Rendimientos Mensuales</span>
           <div style="display:flex;align-items:center;gap:10px">
-            <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.25s" id="rend-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+            <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.25s" id="rend-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
           </div>
         </div>
         <div id="rend-panel" style="display:none;border-top:1px solid var(--border)">
@@ -849,6 +850,13 @@
             <div class="toggle-sub">Muestra el control de gasto por mes</div>
           </div>
           <div class="toggle" id="presupuesto-toggle" onclick="togglePresupuesto()"><div class="toggle-thumb"></div></div>
+        </div>
+        <div class="toggle-row" id="cat-pres-toggle-row" style="border-top:1px solid var(--border);margin-top:4px;padding-top:12px;display:none">
+          <div class="toggle-info">
+            <div class="toggle-name">Presupuesto por Categoría</div>
+            <div class="toggle-sub">Asigna límites de gasto por categoría</div>
+          </div>
+          <div class="toggle" id="cat-presupuesto-toggle" onclick="toggleCatPresupuesto()"><div class="toggle-thumb"></div></div>
         </div>
       </div>
 
@@ -896,6 +904,52 @@
     </div>
   </div>
 
+  <!-- ===== MODAL: PRESUPUESTO POR CATEGORÍA ===== -->
+  <div class="modal-overlay" id="modal-cat-presupuesto">
+    <div class="modal">
+      <div class="modal-handle"></div>
+      <div class="modal-title" id="cat-pres-modal-title">Presupuesto del Mes</div>
+
+      <!-- Total mensual -->
+      <div style="background:var(--surface2);border-radius:var(--radius-sm);padding:14px;margin-bottom:16px">
+        <div class="form-label" style="margin-bottom:8px">Presupuesto total del mes</div>
+        <input type="number" class="form-input" id="cat-pres-total-input" placeholder="ej. 25000" step="100">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:10px">
+          <span style="font-size:12px;color:var(--text3)">Copiar del mes anterior</span>
+          <button onclick="copiarCatPresupuestoAnterior()" style="background:var(--surface3);border:none;color:var(--text2);border-radius:8px;padding:4px 10px;font-size:12px;cursor:pointer;font-family:inherit">Copiar</button>
+        </div>
+      </div>
+
+      <!-- Lista de categorías con presupuesto -->
+      <div id="cat-pres-entries" style="margin-bottom:4px"></div>
+
+      <!-- Botón "+" y formulario de agregar -->
+      <div id="cat-pres-add-wrap">
+        <button id="cat-pres-add-btn" onclick="showCatAddForm()"
+          style="width:100%;background:var(--surface2);border:1.5px dashed var(--border);border-radius:var(--radius-sm);padding:11px;font-size:13px;font-weight:600;color:var(--text2);cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:6px;transition:all 0.2s;margin-bottom:16px">
+          <span style="font-size:18px;line-height:1">＋</span> Agregar categoría
+        </button>
+        <!-- Formulario inline de agregar (hidden by default) -->
+        <div id="cat-pres-add-form" style="display:none;margin-bottom:16px">
+          <div class="form-label" style="margin-bottom:8px">Selecciona una categoría</div>
+          <div id="cat-pres-picker" class="cat-grid" style="margin-bottom:12px"></div>
+          <div id="cat-pres-amount-wrap" style="display:none">
+            <div class="form-label" style="margin-bottom:8px">Monto límite (MXN)</div>
+            <input type="number" class="form-input" id="cat-pres-new-amount" placeholder="ej. 5000" step="100" style="margin-bottom:10px">
+            <div style="display:flex;gap:8px">
+              <button onclick="confirmAddCatBudget()" style="flex:1;background:var(--accent);border:none;color:white;border-radius:var(--radius-sm);padding:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit">Agregar</button>
+              <button onclick="hideCatAddForm()" style="flex:1;background:var(--surface3);border:none;color:var(--text2);border-radius:var(--radius-sm);padding:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit">Cancelar</button>
+            </div>
+          </div>
+          <div id="cat-pres-select-hint" style="font-size:12px;color:var(--text3);text-align:center;padding:4px 0 8px">Toca una categoría para continuar</div>
+        </div>
+      </div>
+
+      <button class="btn-primary" onclick="saveCatPresupuestos()">Guardar</button>
+      <button class="btn-primary" style="background:transparent;color:var(--text2);margin-top:8px" onclick="closeCatPresupuestoModal()">Cancelar</button>
+    </div>
+  </div>
+
   <!-- ===== MODAL: CONCEPTO INGRESO ===== -->
   <!-- Generic confirm modal -->
   <div class="modal-overlay" id="modal-confirm">
@@ -936,7 +990,7 @@
         <div style="background:rgba(240,64,96,0.08);border:1px solid rgba(240,64,96,0.2);border-radius:var(--radius-sm);padding:16px;margin-bottom:10px">
           <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px">Borrar todo el año</div>
           <div style="font-size:12px;color:var(--text3);margin-bottom:12px">Elimina todos los ingresos y gastos de todos los meses.</div>
-          <button class="btn-primary" style="background:var(--red);margin-top:0;padding:10px" onclick="goConfirmReset(&#39;todo&#39;)">Borrar todo</button>
+          <button class="btn-primary" style="background:var(--red);margin-top:0;padding:10px" onclick="goConfirmReset('todo')">Borrar todo</button>
         </div>
 
         <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;margin-bottom:10px">
@@ -945,7 +999,7 @@
           <select class="form-input" id="reset-mes-select" style="margin-bottom:10px">
             <option value="">— Selecciona un mes —</option>
           </select>
-          <button class="btn-primary" style="background:rgba(240,64,96,0.7);margin-top:0;padding:10px" onclick="goConfirmReset(&#39;mes&#39;)">Restablecer mes</button>
+          <button class="btn-primary" style="background:rgba(240,64,96,0.7);margin-top:0;padding:10px" onclick="goConfirmReset('mes')">Restablecer mes</button>
         </div>
 
         <button class="btn-primary" style="background:transparent;color:var(--text2);margin-top:4px" onclick="closeResetModal()">Cancelar</button>
@@ -982,7 +1036,9 @@
       <div class="form-group">
         <label class="form-label">Color</label>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
-          <input type="color" id="cat-color-native" value="#7c5cfc" oninput="onNativeColorChange(this.value)" style="width:44px;height:44px;border-radius:12px;border:2px solid var(--border);background:none;cursor:pointer;padding:2px">
+          <input type="color" id="cat-color-native" value="#7c5cfc"
+            oninput="onNativeColorChange(this.value)"
+            style="width:44px;height:44px;border-radius:12px;border:2px solid var(--border);background:none;cursor:pointer;padding:2px">
           <span style="font-size:12px;color:var(--text2)">Elige cualquier color del espectro</span>
         </div>
         <div id="cat-color-picker" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:4px"></div>
@@ -1071,23 +1127,23 @@
 
 
   <nav class="navbar">
-    <div class="nav-item active" onclick="goTo(&#39;home&#39;)" id="nav-home">
+    <div class="nav-item active" onclick="goTo('home')" id="nav-home">
       <div class="nav-icon">🏠</div>
       <div class="nav-label">Inicio</div>
     </div>
-    <div class="nav-item" onclick="goTo(&#39;gastos&#39;)" id="nav-gastos">
+    <div class="nav-item" onclick="goTo('gastos')" id="nav-gastos">
       <div class="nav-icon">💸</div>
       <div class="nav-label">Gastos</div>
     </div>
-    <div class="nav-item" onclick="goTo(&#39;ingresos&#39;)" id="nav-ingresos">
+    <div class="nav-item" onclick="goTo('ingresos')" id="nav-ingresos">
       <div class="nav-icon">💰</div>
       <div class="nav-label">Ingresos</div>
     </div>
-    <div class="nav-item" onclick="goTo(&#39;analisis&#39;)" id="nav-analisis">
+    <div class="nav-item" onclick="goTo('analisis')" id="nav-analisis">
       <div class="nav-icon">📊</div>
       <div class="nav-label">Anual</div>
     </div>
-    <div class="nav-item" onclick="goTo(&#39;config&#39;)" id="nav-config">
+    <div class="nav-item" onclick="goTo('config')" id="nav-config">
       <div class="nav-icon">⚙️</div>
       <div class="nav-label">Config</div>
     </div>
@@ -1100,9 +1156,9 @@
       <div class="modal-title" id="modal-title">Agregar Gasto</div>
 
       <div class="segment" id="tipo-segment">
-        <button class="segment-btn" onclick="setTipoGasto(&#39;variable&#39;)">Variable</button>
-        <button class="segment-btn active" onclick="setTipoGasto(&#39;ingreso&#39;)">Ingreso</button>
-        <button class="segment-btn" onclick="setTipoGasto(&#39;retiro&#39;)">Retiro/Otro</button>
+        <button class="segment-btn" onclick="setTipoGasto('variable')">Variable</button>
+        <button class="segment-btn active" onclick="setTipoGasto('ingreso')">Ingreso</button>
+        <button class="segment-btn" onclick="setTipoGasto('retiro')">Retiro/Otro</button>
       </div>
 
       <div id="form-gasto-fields">
@@ -1208,13 +1264,15 @@
     <div class="modal-title">Color — Gastos Fijos</div>
     <div style="font-size:13px;color:var(--text2);margin-bottom:14px">Este color aplica a todos los gastos fijos como grupo.</div>
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
-      <input type="color" id="fijos-color-native" value="#7c5cfc" oninput="onFijosGroupNativeColor(this.value)" style="width:44px;height:44px;border-radius:12px;border:2px solid var(--border);background:none;cursor:pointer;padding:2px">
+      <input type="color" id="fijos-color-native" value="#7c5cfc"
+        oninput="onFijosGroupNativeColor(this.value)"
+        style="width:44px;height:44px;border-radius:12px;border:2px solid var(--border);background:none;cursor:pointer;padding:2px">
       <span style="font-size:12px;color:var(--text2)">Elige cualquier color del espectro</span>
     </div>
     <div id="fijos-group-color-picker" style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px"></div>
     <input type="hidden" id="fijos-group-color-selected" value="">
     <button class="btn-primary" onclick="saveFijosGroupColor()">Guardar</button>
-    <button class="btn-primary" style="background:transparent;color:var(--text2);margin-top:8px" onclick="document.getElementById(&#39;modal-fijos-color&#39;).classList.remove(&#39;open&#39;)">Cancelar</button>
+    <button class="btn-primary" style="background:transparent;color:var(--text2);margin-top:8px" onclick="document.getElementById('modal-fijos-color').classList.remove('open')">Cancelar</button>
   </div>
 </div>
 
@@ -1314,7 +1372,7 @@
 </div>
 </div>
 
-<script src="./index_files/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
 // ================== STATE ==================
 const MONTHS = ['ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE'];
@@ -1341,8 +1399,11 @@ let state = {
   divisaNombre: 'USD',
   showUSD: true,
   showPresupuesto: false,
+  showCatPresupuesto: false,
+  catPresupuestoOpen: false,
   saldoGradient: 0,
   presupuestos: {}, // { monthIndex: amount }
+  catPresupuestos: {}, // { "m_catName": amount }
   saldoInicioAnio: 201469.21,
   // fijos: array of {id, nombre, monto, dia, emoji}
   fijos: [
@@ -1425,8 +1486,11 @@ function crearNuevoAnio() {
     divisaNombre: state.divisaNombre,
     showUSD: state.showUSD,
     showPresupuesto: false,
+    showCatPresupuesto: false,
+    catPresupuestoOpen: false,
     saldoGradient: state.saldoGradient,
     presupuestos: {},
+    catPresupuestos: {},
     saldoInicioAnio: saldo,
     fijos: JSON.parse(JSON.stringify(state.fijos)),
     data: {},
@@ -2402,7 +2466,7 @@ function renderAnalisis() {
           </div>
           <!-- Progress bar -->
           <div onclick="toggleListCat(${ci})" style="background:var(--surface3);border-radius:99px;height:3px;overflow:hidden;cursor:pointer;margin-bottom:0">
-            <div style="height:100%;border-radius:99px;background:${color};width:${(yearCats[c]/maxCat*100).toFixed(0)}%;transition:width 0.5s"></div>
+            <div style="height:100%;border-radius:99px;background:${color};width:${totGas>0?(yearCats[c]/totGas*100).toFixed(1):0}%;transition:width 0.5s"></div>
           </div>
           <!-- Monthly breakdown (collapsed by default) -->
           <div id="list-cat-detail-${ci}" style="display:none;margin-top:8px">
@@ -2728,6 +2792,10 @@ function renderConfig() {
   if (usdToggle) { usdToggle.classList.toggle('on', state.showUSD); }
   const presToggle = document.getElementById('presupuesto-toggle');
   if (presToggle) { presToggle.classList.toggle('on', state.showPresupuesto); }
+  const catPresToggle = document.getElementById('cat-presupuesto-toggle');
+  if (catPresToggle) { catPresToggle.classList.toggle('on', !!state.showCatPresupuesto); }
+  const catPresRow = document.getElementById('cat-pres-toggle-row');
+  if (catPresRow) catPresRow.style.display = state.showPresupuesto ? '' : 'none';
   // Keep fijos color dot in sync
   const dot = document.getElementById('fijos-color-dot');
   if (dot) dot.style.background = CAT_COLORS['Gastos Fijos'] || '#7c5cfc';
@@ -3672,16 +3740,36 @@ function selectGradient(i) {
 function togglePresupuesto() {
   state.showPresupuesto = !state.showPresupuesto;
   document.getElementById('presupuesto-toggle').classList.toggle('on', state.showPresupuesto);
+  if (!state.showPresupuesto) {
+    state.showCatPresupuesto = false;
+    const ct = document.getElementById('cat-presupuesto-toggle');
+    if (ct) ct.classList.remove('on');
+  }
+  const catRow = document.getElementById('cat-pres-toggle-row');
+  if (catRow) catRow.style.display = state.showPresupuesto ? '' : 'none';
   saveState();
-  render();
+  renderPresupuesto();
+}
+
+function toggleCatPresupuesto() {
+  state.showCatPresupuesto = !state.showCatPresupuesto;
+  const t = document.getElementById('cat-presupuesto-toggle');
+  if (t) t.classList.toggle('on', state.showCatPresupuesto);
+  if (!state.showCatPresupuesto) state.catPresupuestoOpen = false;
+  saveState();
+  renderPresupuesto();
 }
 
 function toggleEditPresupuesto() {
-  const m = state.currentMonth;
-  const cur = (state.presupuestos||{})[m] || '';
-  document.getElementById('presupuesto-input').value = cur;
-  document.getElementById('modal-presupuesto').classList.add('open');
-  setTimeout(() => document.getElementById('presupuesto-input').focus(), 100);
+  if (state.showCatPresupuesto) {
+    openCatPresupuestoModal();
+  } else {
+    const m = state.currentMonth;
+    const cur = (state.presupuestos||{})[m] || '';
+    document.getElementById('presupuesto-input').value = cur;
+    document.getElementById('modal-presupuesto').classList.add('open');
+    setTimeout(() => document.getElementById('presupuesto-input').focus(), 100);
+  }
 }
 
 function closePresupuestoModal() {
@@ -3702,10 +3790,208 @@ function copiarPresupuestoAnterior() {
   const m = state.currentMonth;
   if (m === 0) return;
   const prev = (state.presupuestos||{})[m-1];
-  if (prev) {
-    document.getElementById('presupuesto-input').value = prev;
+  if (prev) document.getElementById('presupuesto-input').value = prev;
+}
+
+// ===== PRESUPUESTO POR CATEGORÍA =====
+function getCatPresupuesto(m, cat) {
+  return ((state.catPresupuestos||{})[`${m}_${cat}`]) || 0;
+}
+
+// Color de barra que se intensifica con el gasto (mismo color de la cat, + opacidad)
+function catBudgetBarColor(hexColor, pctVal) {
+  if (pctVal >= 100) return 'var(--red)';
+  // 0% → 20% opacity, 100% → 100% opacity
+  const alpha = (0.2 + (pctVal / 100) * 0.8).toFixed(2);
+  try {
+    const h = hexColor.replace('#','');
+    const r = parseInt(h.slice(0,2),16), g = parseInt(h.slice(2,4),16), b = parseInt(h.slice(4,6),16);
+    return `rgba(${r},${g},${b},${alpha})`;
+  } catch(e) { return hexColor; }
+}
+
+// Working copy while modal is open
+let _editingCatBudgets = {}; // { cat: amount }
+let _selectedNewCat = null;
+
+function openCatPresupuestoModal() {
+  const m = state.currentMonth;
+  if (!state.catPresupuestos) state.catPresupuestos = {};
+  document.getElementById('cat-pres-modal-title').textContent = `Presupuesto — ${MONTHS[m]}`;
+  document.getElementById('cat-pres-total-input').value = (state.presupuestos||{})[m] || '';
+
+  // Load existing cat budgets into working copy
+  _editingCatBudgets = {};
+  CATS.forEach(c => {
+    const v = getCatPresupuesto(m, c);
+    if (v > 0) _editingCatBudgets[c] = v;
+  });
+  _selectedNewCat = null;
+
+  renderCatPresEntries(m);
+  hideCatAddForm();
+  document.getElementById('modal-cat-presupuesto').classList.add('open');
+}
+
+function renderCatPresEntries(m) {
+  const md = getMonthData(m);
+  const catSpend = {};
+  md.gastos.forEach(g => { catSpend[g.cat] = (catSpend[g.cat]||0) + g.monto; });
+  catSpend['Gastos Fijos'] = getFijosActivadosTotal(m);
+
+  const entries = Object.entries(_editingCatBudgets);
+  const el = document.getElementById('cat-pres-entries');
+  if (!el) return;
+
+  if (entries.length === 0) {
+    el.innerHTML = '';
+    return;
+  }
+
+  el.innerHTML = entries.map(([cat, budget]) => {
+    const spent = catSpend[cat] || 0;
+    const color = CAT_COLORS[cat] || '#6b7280';
+    const pctVal = budget > 0 ? Math.min(spent/budget*100, 100) : 0;
+    const barColor = catBudgetBarColor(color, pctVal);
+    const restoC = budget - spent;
+    return `<div style="background:var(--surface2);border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:8px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <span style="font-size:13px;font-weight:600;color:var(--text)">${CAT_ICONS[cat]||'📦'} ${cat}</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          ${spent > 0 ? `<span style="font-size:11px;color:var(--text3)">Gastado: ${fmt(spent)}</span>` : ''}
+          <button onclick="removeCatEntry('${cat}')" style="background:none;border:none;color:var(--text3);font-size:16px;cursor:pointer;padding:0;line-height:1;opacity:0.6">✕</button>
+        </div>
+      </div>
+      <input type="number" data-cat="${cat}" class="form-input cat-pres-input"
+        value="${budget}" placeholder="Límite MXN" step="100"
+        oninput="_editingCatBudgets['${cat}']=parseFloat(this.value)||0"
+        style="padding:8px 12px;font-size:14px;margin-bottom:6px">
+      <div style="background:var(--surface3);border-radius:99px;height:4px;overflow:hidden;margin-bottom:4px">
+        <div style="height:100%;border-radius:99px;background:${barColor};width:${pctVal.toFixed(1)}%;transition:width 0.4s"></div>
+      </div>
+      <div style="font-size:10px;color:${pctVal>=100?'var(--red)':'var(--text3)'}">
+        ${pctVal >= 100 ? `Superado por ${fmt(Math.abs(restoC))}` : `${pctVal.toFixed(0)}% utilizado · Disponible ${fmt(restoC)}`}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function removeCatEntry(cat) {
+  delete _editingCatBudgets[cat];
+  renderCatPresEntries(state.currentMonth);
+  // Rebuild picker in case it's open
+  const form = document.getElementById('cat-pres-add-form');
+  if (form && form.style.display !== 'none') buildCatPresPicker();
+}
+
+function showCatAddForm() {
+  _selectedNewCat = null;
+  document.getElementById('cat-pres-add-form').style.display = 'block';
+  document.getElementById('cat-pres-add-btn').style.display = 'none';
+  document.getElementById('cat-pres-amount-wrap').style.display = 'none';
+  document.getElementById('cat-pres-select-hint').style.display = 'block';
+  document.getElementById('cat-pres-new-amount').value = '';
+  buildCatPresPicker();
+}
+
+function hideCatAddForm() {
+  document.getElementById('cat-pres-add-form').style.display = 'none';
+  document.getElementById('cat-pres-add-btn').style.display = 'flex';
+}
+
+function buildCatPresPicker() {
+  const available = CATS.filter(c => !_editingCatBudgets[c]);
+  const picker = document.getElementById('cat-pres-picker');
+  if (!picker) return;
+  if (available.length === 0) {
+    picker.innerHTML = '<div style="font-size:12px;color:var(--text3);text-align:center;padding:8px 0;grid-column:1/-1">Todas las categorías ya tienen presupuesto</div>';
+    return;
+  }
+  picker.innerHTML = available.map(c => `
+    <div class="cat-option ${c === _selectedNewCat ? 'selected' : ''}"
+      onclick="selectCatForBudget('${c.replace(/'/g,"\\'")}')">
+      ${CAT_ICONS[c]||'📦'} ${c}
+    </div>`).join('');
+}
+
+function selectCatForBudget(cat) {
+  _selectedNewCat = cat;
+  // Highlight selection
+  document.querySelectorAll('#cat-pres-picker .cat-option').forEach(el => el.classList.remove('selected'));
+  const opts = document.querySelectorAll('#cat-pres-picker .cat-option');
+  opts.forEach(el => { if (el.textContent.trim().includes(cat.slice(0,6))) el.classList.add('selected'); });
+  buildCatPresPicker(); // re-render to apply selection
+  document.getElementById('cat-pres-amount-wrap').style.display = 'block';
+  document.getElementById('cat-pres-select-hint').style.display = 'none';
+  setTimeout(() => document.getElementById('cat-pres-new-amount').focus(), 50);
+}
+
+function confirmAddCatBudget() {
+  if (!_selectedNewCat) return;
+  const val = parseFloat(document.getElementById('cat-pres-new-amount').value) || 0;
+  if (val <= 0) { alert('Ingresa un monto válido'); return; }
+  _editingCatBudgets[_selectedNewCat] = val;
+  _selectedNewCat = null;
+  renderCatPresEntries(state.currentMonth);
+  hideCatAddForm();
+}
+
+function closeCatPresupuestoModal() {
+  document.getElementById('modal-cat-presupuesto').classList.remove('open');
+}
+
+function copiarCatPresupuestoAnterior() {
+  const m = state.currentMonth;
+  if (m === 0) return;
+  const prev = (state.presupuestos||{})[m-1];
+  if (prev) document.getElementById('cat-pres-total-input').value = prev;
+}
+
+function saveCatPresupuestos() {
+  const m = state.currentMonth;
+  if (!state.presupuestos) state.presupuestos = {};
+  if (!state.catPresupuestos) state.catPresupuestos = {};
+
+  // Save total
+  state.presupuestos[m] = parseFloat(document.getElementById('cat-pres-total-input').value) || 0;
+
+  // Sync from inputs (in case user edited inline) then save working copy
+  document.querySelectorAll('.cat-pres-input').forEach(inp => {
+    const cat = inp.dataset.cat;
+    const val = parseFloat(inp.value) || 0;
+    if (cat) _editingCatBudgets[cat] = val;
+  });
+
+  // Clear existing for this month then write working copy
+  CATS.forEach(c => delete state.catPresupuestos[`${m}_${c}`]);
+  Object.entries(_editingCatBudgets).forEach(([cat, val]) => {
+    if (val > 0) state.catPresupuestos[`${m}_${cat}`] = val;
+  });
+
+  saveState();
+  closeCatPresupuestoModal();
+  renderPresupuesto();
+}
+
+// Expand/collapse cat breakdown from home card
+function onPresCardClick() {
+  const hasCatBudgets = state.showCatPresupuesto &&
+    CATS.some(c => getCatPresupuesto(state.currentMonth, c) > 0);
+  const presupuesto = (state.presupuestos||{})[state.currentMonth] || 0;
+
+  if (hasCatBudgets && presupuesto > 0) {
+    toggleCatBreakdown();
+  } else {
+    toggleEditPresupuesto();
   }
 }
+
+function toggleCatBreakdown() {
+  state.catPresupuestoOpen = !state.catPresupuestoOpen;
+  saveState();
+  renderPresupuesto();
+}
+// ===== END PRESUPUESTO POR CATEGORÍA =====
 
 function renderPresupuesto() {
   const m = state.currentMonth;
@@ -3714,45 +4000,91 @@ function renderPresupuesto() {
   const gastosFijosTotal = getFijosActivadosTotal(m);
   const gastosTotal = gastosFijosTotal + md.gastos.reduce((a,g)=>a+g.monto,0);
 
-  // Home card
   const homeCard = document.getElementById('presupuesto-home-card');
   if (homeCard) homeCard.style.display = state.showPresupuesto ? 'block' : 'none';
-
   if (!state.showPresupuesto) return;
 
   const pct = presupuesto > 0 ? gastosTotal / presupuesto : 0;
-  const barWidth = Math.min(pct * 100, 100).toFixed(1); // fills up as spending increases
+  const barWidth = Math.min(pct * 100, 100).toFixed(1);
   const resto = presupuesto - gastosTotal;
-
-  // Purple that gets brighter as pct increases
   const brightness = Math.min(0.3 + pct * 0.7, 1);
-  const barColor = `rgba(var(--accent2-rgb,168,85,247),${brightness.toFixed(2)})`;
+  const totalBarColor = `rgba(var(--accent2-rgb,168,85,247),${brightness.toFixed(2)})`;
 
-  // Home card content — neutral, always same color
-  const homeBar = document.getElementById('presupuesto-home-bar');
+  const homeBar   = document.getElementById('presupuesto-home-bar');
   const homeLabel = document.getElementById('presupuesto-home-label');
-  const homeSub = document.getElementById('presupuesto-home-sub');
+  const homeSub   = document.getElementById('presupuesto-home-sub');
+  const editBtn   = document.getElementById('pres-edit-btn');
+  const chevron   = document.getElementById('pres-expand-chevron');
+  const topCard   = document.getElementById('presupuesto-top-card');
 
-  if (homeBar) {
-    homeBar.style.width = presupuesto > 0 ? barWidth + '%' : '0%';
-    homeBar.style.background = barColor;
-  }
-  if (homeLabel) {
-    homeLabel.innerHTML = presupuesto > 0
-      ? `<span style="color:var(--text2)">${(pct*100).toFixed(0)}% utilizado</span>`
-      : '<span style="color:var(--text3)">Sin definir</span>';
-  }
-  if (homeSub) {
+  if (homeBar)   { homeBar.style.width = presupuesto > 0 ? barWidth + '%' : '0%'; homeBar.style.background = totalBarColor; }
+  if (homeLabel) { homeLabel.innerHTML = presupuesto > 0 ? `<span style="color:var(--text2)">${(pct*100).toFixed(0)}% utilizado</span>` : '<span style="color:var(--text3)">Sin definir</span>'; }
+  if (homeSub)   {
     homeSub.style.color = 'var(--text2)';
-    if (presupuesto <= 0) {
-      homeSub.textContent = 'Toca para definir presupuesto';
-    } else if (resto < 0) {
-      homeSub.textContent = `Presupuesto superado por ${fmt(Math.abs(resto))}`;
-    } else {
-      homeSub.textContent = `Disponible: ${fmt(resto)} de ${fmt(presupuesto)}`;
-    }
+    homeSub.textContent = presupuesto <= 0 ? 'Toca para definir presupuesto'
+      : resto < 0 ? `Presupuesto superado por ${fmt(Math.abs(resto))}`
+      : `Disponible: ${fmt(resto)} de ${fmt(presupuesto)}`;
   }
 
+  // ---- Category section ----
+  const catsCard = document.getElementById('presupuesto-cats-card');
+  const catsList = document.getElementById('presupuesto-cats-list');
+  if (!catsCard || !catsList) return;
+
+  const hasCatBudgets = state.showCatPresupuesto && CATS.some(c => getCatPresupuesto(m, c) > 0);
+
+  // Show/hide edit icon and chevron
+  if (editBtn) editBtn.style.display = (state.showCatPresupuesto && presupuesto > 0) ? 'flex' : 'none';
+  if (chevron) chevron.style.display = hasCatBudgets ? 'flex' : 'none';
+
+  if (!hasCatBudgets) {
+    catsCard.style.display = 'none';
+    if (topCard) { topCard.style.borderBottomLeftRadius = ''; topCard.style.borderBottomRightRadius = ''; }
+    return;
+  }
+
+  const isOpen = !!state.catPresupuestoOpen;
+  if (chevron) chevron.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+
+  if (!isOpen) {
+    catsCard.style.display = 'none';
+    if (topCard) { topCard.style.borderBottomLeftRadius = ''; topCard.style.borderBottomRightRadius = ''; }
+    return;
+  }
+
+  // Render expanded category breakdown
+  catsCard.style.display = 'block';
+  if (topCard) { topCard.style.borderBottomLeftRadius = '0'; topCard.style.borderBottomRightRadius = '0'; }
+
+  const catSpend = {};
+  md.gastos.forEach(g => { catSpend[g.cat] = (catSpend[g.cat]||0) + g.monto; });
+  catSpend['Gastos Fijos'] = gastosFijosTotal;
+
+  const catsWithBudget = CATS.filter(c => getCatPresupuesto(m, c) > 0);
+
+  catsList.innerHTML = catsWithBudget.map(c => {
+    const spent   = catSpend[c] || 0;
+    const budget  = getCatPresupuesto(m, c);
+    const color   = CAT_COLORS[c] || '#6b7280';
+    const pctCat  = budget > 0 ? Math.min(spent/budget*100, 100) : 0;
+    const barCol  = catBudgetBarColor(color, pctCat);
+    const restoC  = budget - spent;
+    return `<div style="margin-bottom:10px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+        <span style="font-size:12px;font-weight:500;color:var(--text)">${CAT_ICONS[c]||'📦'} ${c}</span>
+        <div>
+          <span style="font-size:12px;font-weight:700;color:${pctCat>=100?'var(--red)':'var(--text)'}">${fmt(spent)}</span>
+          <span style="font-size:11px;color:var(--text3)"> / ${fmt(budget)}</span>
+        </div>
+      </div>
+      <div style="background:var(--surface3);border-radius:99px;height:4px;overflow:hidden;margin-bottom:3px">
+        <div style="height:100%;border-radius:99px;background:${barCol};width:${pctCat.toFixed(1)}%;transition:width 0.4s"></div>
+      </div>
+      <div style="font-size:10px;color:${pctCat>=100?'var(--red)':'var(--text3)'}">
+        ${pctCat>=100 ? `Superado por ${fmt(Math.abs(restoC))}` : `${pctCat.toFixed(0)}% · Disponible ${fmt(restoC)}`}
+      </div>
+    </div>`;
+  }).join('');
 }
 
 function toggleUSD() {
@@ -4078,45 +4410,85 @@ migrateToMultiYear();
 document.getElementById('year-label').textContent = getCurrentYear();
 
 // ===== iOS PWA viewport fix =====
-// iOS calcula mal la altura inicial del viewport en modo standalone (PWA),
-// dejando un espacio negro al fondo. Forzamos la altura real con JS y
-// reintentamos varias veces para vencer el cálculo inicial incorrecto.
+// iOS calcula mal la altura del viewport en PWA standalone, sobre todo al
+// reabrir la app desde el icono del home (resume / cold start desde caché).
+// Forzamos la altura real con JS y usamos varias estrategias en paralelo:
+// (1) eventos clásicos de viewport, (2) visualViewport API si existe,
+// (3) polling con detección de estabilización al reabrir.
 function setAppHeight() {
-  const h = window.innerHeight || document.documentElement.clientHeight;
-  if (h > 0) {
-    document.documentElement.style.setProperty('--app-height', h + 'px');
+  // visualViewport.height es más preciso en iOS para el área visible real
+  const h = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
+  if (h && h > 200) {
+    const cur = document.documentElement.style.getPropertyValue('--app-height');
+    const next = h + 'px';
+    if (cur !== next) {
+      document.documentElement.style.setProperty('--app-height', next);
+      // Forzar reflow para que iOS aplique el cambio inmediatamente
+      void document.body.offsetHeight;
+    }
   }
 }
+
+// Polling con detección de estabilización: sigue ajustando hasta que la
+// altura no cambie en 3 ciclos seguidos, o hasta 4 segundos máximo.
+let _heightPollTimer = null;
+function pollUntilStable() {
+  if (_heightPollTimer) { clearTimeout(_heightPollTimer); _heightPollTimer = null; }
+  let lastH = -1, stableCount = 0, attempts = 0;
+  const tick = () => {
+    const h = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
+    if (h && h > 200) {
+      if (h === lastH) stableCount++;
+      else { stableCount = 0; lastH = h; setAppHeight(); }
+    }
+    attempts++;
+    if (stableCount < 3 && attempts < 40) {
+      _heightPollTimer = setTimeout(tick, 100);
+    } else {
+      _heightPollTimer = null;
+    }
+  };
+  tick();
+}
+
+// Run on initial parse
 setAppHeight();
+pollUntilStable();
+
+// Eventos clásicos
 window.addEventListener('resize', setAppHeight);
-window.addEventListener('load', () => {
-  setAppHeight();
-  // Recálculos progresivos por si iOS aún reporta valores incorrectos
-  [50, 150, 350, 700, 1200].forEach(d => setTimeout(setAppHeight, d));
-});
-window.addEventListener('pageshow', setAppHeight);
+window.addEventListener('focus', setAppHeight);
+window.addEventListener('load', pollUntilStable);
+window.addEventListener('pageshow', pollUntilStable);  // iOS PWA resume desde bfcache
 window.addEventListener('visibilitychange', () => {
-  if (!document.hidden) setAppHeight();
+  if (!document.hidden) pollUntilStable();
+});
+window.addEventListener('orientationchange', () => {
+  [50, 200, 500, 1000].forEach(d => setTimeout(setAppHeight, d));
 });
 
-// Detectar modo PWA standalone y forzar recálculo agresivo en arranque
+// visualViewport API: más confiable en iOS moderno (solo resize, no scroll
+// para no interferir con el scroll normal del contenido)
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', setAppHeight);
+}
+
+// Detectar modo PWA standalone
 const isPWA = window.navigator.standalone === true;
 if (isPWA) {
   document.body.classList.add('is-pwa');
-  // Reintentos más agresivos en PWA: el bug del viewport inicial es peor aquí
-  [0, 30, 80, 150, 250, 500, 900, 1500].forEach(d => setTimeout(setAppHeight, d));
+  pollUntilStable();
 }
-
-// Reajustar al rotar y regresar a vertical
-window.addEventListener('orientationchange', () => {
-  [50, 200, 500].forEach(d => setTimeout(setAppHeight, d));
-});
 
 // Registrar Service Worker para PWA offline
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./sw.js')
-      .then(() => console.log('SW registrado'))
+      .then(reg => {
+        // Forzar revisión de actualizaciones en cada apertura
+        try { reg.update(); } catch(e) {}
+        console.log('SW registrado');
+      })
       .catch(err => console.log('SW error:', err));
   });
 }
@@ -4326,6 +4698,5 @@ function toggleIngSource(idx) {
 }
 // ================== END DESGLOSE INGRESOS ==================
 </script>
-
-
-</body></html>
+</body>
+</html>
