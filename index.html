@@ -43,7 +43,10 @@
   .nav-bar { padding-bottom: max(20px, env(safe-area-inset-bottom)); }
 
   /* iPhone frame */
-  .phone-wrap { display:flex; justify-content:center; align-items:stretch; width:100%; height: var(--app-height); background:rgb(13,13,20); position:fixed; top:0; left:0; right:0; bottom:0; inset:0; }
+  /* IMPORTANT: NO explicit height — let `inset:0` stretch to actual viewport edges.
+     If we set `height: var(--app-height)`, the explicit height overrides the
+     inset:0 stretching, and any wrong --app-height value leaves a black gap. */
+  .phone-wrap { display:flex; justify-content:center; align-items:stretch; background:rgb(13,13,20); position:fixed; top:0; left:0; right:0; bottom:0; }
   .phone { width:100%; height:100%; background:var(--bg); border-radius:0; overflow:hidden; display:flex; flex-direction:column; position:relative; }
   @media(min-width:600px) { .phone-wrap { background:radial-gradient(ellipse at 30% 20%, #1a0a3a 0%, #050510 60%); align-items:center; } .phone { width:430px; height:932px; border-radius:50px; box-shadow: 0 40px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.08); } }
 
@@ -4410,11 +4413,13 @@ migrateToMultiYear();
 document.getElementById('year-label').textContent = getCurrentYear();
 
 // ===== iOS PWA viewport fix =====
-// iOS calcula mal la altura del viewport en PWA standalone, sobre todo al
-// reabrir la app desde el icono del home. Forzamos la altura real con JS y
-// reintentamos varias veces para vencer el cálculo inicial incorrecto.
-// IMPORTANTE: usamos window.innerHeight (NO visualViewport.height) porque en
-// iOS PWA standalone visualViewport reporta valores incorrectos al cold start.
+// Estrategia:
+// (1) `.phone-wrap` usa `position:fixed; inset:0` SIN height explícito.
+//     Eso ancla los bordes al viewport real, no a un valor calculado.
+// (2) `--app-height` se actualiza desde JS para que html/body tengan
+//     dimensiones coherentes en cálculos secundarios.
+// (3) En PWA standalone, ejecutamos un "kick" de layout que simula la
+//     rotación que normalmente "arregla" el bug, sin que el usuario rote.
 function setAppHeight() {
   const h = window.innerHeight;
   if (h && h > 200) {
@@ -4422,9 +4427,28 @@ function setAppHeight() {
   }
 }
 
-// Cascada de reintentos para vencer el cálculo inicial incorrecto de iOS.
+// Kick que fuerza a iOS a recalcular dimensiones del viewport.
+// Trucos combinados: scroll micro-shift + transform compositing layer.
+function kickLayout() {
+  setAppHeight();
+  try {
+    // Truco 1: micro scroll para forzar invalidación de layout
+    window.scrollTo(0, 1);
+    window.scrollTo(0, 0);
+    // Truco 2: compositing layer flush via transform efímero
+    document.documentElement.style.transform = 'translateZ(0)';
+    void document.documentElement.offsetHeight;
+    requestAnimationFrame(() => {
+      document.documentElement.style.transform = '';
+      setAppHeight();
+    });
+  } catch(e) {}
+}
+
+// Cascada de reintentos para cold start de PWA
 function aggressiveHeightFix() {
   setAppHeight();
+  kickLayout();
   [0, 30, 80, 150, 250, 500, 900, 1500, 2500].forEach(d => setTimeout(setAppHeight, d));
 }
 
@@ -4435,7 +4459,7 @@ setAppHeight();
 window.addEventListener('resize', setAppHeight);
 window.addEventListener('focus', setAppHeight);
 window.addEventListener('load', aggressiveHeightFix);
-window.addEventListener('pageshow', aggressiveHeightFix);  // iOS PWA resume desde bfcache
+window.addEventListener('pageshow', aggressiveHeightFix);  // iOS PWA resume
 window.addEventListener('visibilitychange', () => {
   if (!document.hidden) aggressiveHeightFix();
 });
@@ -4443,11 +4467,13 @@ window.addEventListener('orientationchange', () => {
   [50, 200, 500, 1000].forEach(d => setTimeout(setAppHeight, d));
 });
 
-// Detectar modo PWA standalone — fix más agresivo aquí
+// Detectar modo PWA standalone — kick agresivo en cold start
 const isPWA = window.navigator.standalone === true;
 if (isPWA) {
   document.body.classList.add('is-pwa');
   aggressiveHeightFix();
+  // Kicks adicionales más tarde por si el primer arranque aún reporta mal
+  [800, 1500, 3000].forEach(d => setTimeout(kickLayout, d));
 }
 
 // Registrar Service Worker para PWA offline
