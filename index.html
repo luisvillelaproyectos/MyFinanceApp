@@ -4411,73 +4411,43 @@ document.getElementById('year-label').textContent = getCurrentYear();
 
 // ===== iOS PWA viewport fix =====
 // iOS calcula mal la altura del viewport en PWA standalone, sobre todo al
-// reabrir la app desde el icono del home (resume / cold start desde caché).
-// Forzamos la altura real con JS y usamos varias estrategias en paralelo:
-// (1) eventos clásicos de viewport, (2) visualViewport API si existe,
-// (3) polling con detección de estabilización al reabrir.
+// reabrir la app desde el icono del home. Forzamos la altura real con JS y
+// reintentamos varias veces para vencer el cálculo inicial incorrecto.
+// IMPORTANTE: usamos window.innerHeight (NO visualViewport.height) porque en
+// iOS PWA standalone visualViewport reporta valores incorrectos al cold start.
 function setAppHeight() {
-  // visualViewport.height es más preciso en iOS para el área visible real
-  const h = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
+  const h = window.innerHeight;
   if (h && h > 200) {
-    const cur = document.documentElement.style.getPropertyValue('--app-height');
-    const next = h + 'px';
-    if (cur !== next) {
-      document.documentElement.style.setProperty('--app-height', next);
-      // Forzar reflow para que iOS aplique el cambio inmediatamente
-      void document.body.offsetHeight;
-    }
+    document.documentElement.style.setProperty('--app-height', h + 'px');
   }
 }
 
-// Polling con detección de estabilización: sigue ajustando hasta que la
-// altura no cambie en 3 ciclos seguidos, o hasta 4 segundos máximo.
-let _heightPollTimer = null;
-function pollUntilStable() {
-  if (_heightPollTimer) { clearTimeout(_heightPollTimer); _heightPollTimer = null; }
-  let lastH = -1, stableCount = 0, attempts = 0;
-  const tick = () => {
-    const h = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
-    if (h && h > 200) {
-      if (h === lastH) stableCount++;
-      else { stableCount = 0; lastH = h; setAppHeight(); }
-    }
-    attempts++;
-    if (stableCount < 3 && attempts < 40) {
-      _heightPollTimer = setTimeout(tick, 100);
-    } else {
-      _heightPollTimer = null;
-    }
-  };
-  tick();
+// Cascada de reintentos para vencer el cálculo inicial incorrecto de iOS.
+function aggressiveHeightFix() {
+  setAppHeight();
+  [0, 30, 80, 150, 250, 500, 900, 1500, 2500].forEach(d => setTimeout(setAppHeight, d));
 }
 
 // Run on initial parse
 setAppHeight();
-pollUntilStable();
 
 // Eventos clásicos
 window.addEventListener('resize', setAppHeight);
 window.addEventListener('focus', setAppHeight);
-window.addEventListener('load', pollUntilStable);
-window.addEventListener('pageshow', pollUntilStable);  // iOS PWA resume desde bfcache
+window.addEventListener('load', aggressiveHeightFix);
+window.addEventListener('pageshow', aggressiveHeightFix);  // iOS PWA resume desde bfcache
 window.addEventListener('visibilitychange', () => {
-  if (!document.hidden) pollUntilStable();
+  if (!document.hidden) aggressiveHeightFix();
 });
 window.addEventListener('orientationchange', () => {
   [50, 200, 500, 1000].forEach(d => setTimeout(setAppHeight, d));
 });
 
-// visualViewport API: más confiable en iOS moderno (solo resize, no scroll
-// para no interferir con el scroll normal del contenido)
-if (window.visualViewport) {
-  window.visualViewport.addEventListener('resize', setAppHeight);
-}
-
-// Detectar modo PWA standalone
+// Detectar modo PWA standalone — fix más agresivo aquí
 const isPWA = window.navigator.standalone === true;
 if (isPWA) {
   document.body.classList.add('is-pwa');
-  pollUntilStable();
+  aggressiveHeightFix();
 }
 
 // Registrar Service Worker para PWA offline
