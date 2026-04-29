@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<!-- saved from url=(0041)file:///Users/luis/Downloads/index_8.html -->
-<html lang="es" style="--accent: #e11d48; --accent2: #fb7185; --accent2-rgb: 251,113,133; --app-height: 758px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="es">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Finanzas 2026">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#0a0a0f">
-<link rel="manifest" href="file:///Users/luis/Downloads/manifest.json">
-<link rel="apple-touch-icon" href="file:///Users/luis/Downloads/icons/icon-180.png">
-<link rel="apple-touch-icon" sizes="152x152" href="file:///Users/luis/Downloads/icons/icon-152.png">
-<link rel="apple-touch-icon" sizes="167x167" href="file:///Users/luis/Downloads/icons/icon-167.png">
-<link rel="apple-touch-icon" sizes="180x180" href="file:///Users/luis/Downloads/icons/icon-180.png">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="apple-touch-icon" sizes="152x152" href="icons/icon-152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="icons/icon-167.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
 <!-- Splash screens para iPhone Pro Max y modelos modernos -->
 <link rel="apple-touch-startup-image" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==">
 <title>Finanzas 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="./index_files/css2" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0a0a0f;
@@ -322,82 +322,83 @@
     </div>
     <div class="page-header">
       <div class="page-title">Finanzas <span id="year-label" style="color:var(--accent2);cursor:pointer;border-bottom:1px dashed var(--accent2)" onclick="openYearModal()">2026</span></div>
-      <div class="page-subtitle" id="home-subtitle">FEBRERO</div>
+      <div class="page-subtitle" id="home-subtitle">Mes actual</div>
     </div>
 
     <!-- Month selector -->
-    <div class="month-selector" id="month-selector-home"><div class="month-chip " onclick="selectMonth(0)">Ene</div><div class="month-chip active" onclick="selectMonth(1)">Feb</div><div class="month-chip " onclick="selectMonth(2)">Mar</div><div class="month-chip " onclick="selectMonth(3)">Abr</div><div class="month-chip " onclick="selectMonth(4)">May</div><div class="month-chip " onclick="selectMonth(5)">Jun</div><div class="month-chip " onclick="selectMonth(6)">Jul</div><div class="month-chip " onclick="selectMonth(7)">Ago</div><div class="month-chip " onclick="selectMonth(8)">Sep</div><div class="month-chip " onclick="selectMonth(9)">Oct</div><div class="month-chip " onclick="selectMonth(10)">Nov</div><div class="month-chip " onclick="selectMonth(11)">Dic</div></div>
+    <div class="month-selector" id="month-selector-home"></div>
 
     <div class="scroll-area">
       <!-- Saldo card -->
-      <div class="saldo-card home-card-reorderable" id="home-saldo-card" style="position: relative; background: linear-gradient(135deg, rgb(76, 5, 25) 0%, rgb(159, 18, 57) 60%, rgb(225, 29, 72) 100%);">
+      <div class="saldo-card home-card-reorderable" id="home-saldo-card" style="position:relative">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0">
           <div class="saldo-label">SALDO ACTUAL</div>
           <button id="eye-toggle-btn" onclick="toggleSaldoVisibility()" style="background:rgba(255,255,255,0.12);border:none;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background 0.2s" title="Ocultar datos">
-            <svg id="eye-icon-open" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-            <svg id="eye-icon-closed" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+            <svg id="eye-icon-open" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg id="eye-icon-closed" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
           </button>
         </div>
-        <div id="saldo-sensitive-wrap" class="saldo-visible">
-          <div class="saldo-value" id="saldo-value">$307,342.24</div>
-          <div class="saldo-sub" id="saldo-usd">$16,886.94 USD</div>
+        <div id="saldo-sensitive-wrap">
+          <div class="saldo-value" id="saldo-value">$0</div>
+          <div class="saldo-sub" id="saldo-usd">$0 USD</div>
         </div>
-        <div class="saldo-row saldo-visible" id="saldo-row-sensitive">
+        <div class="saldo-row" id="saldo-row-sensitive">
           <div class="saldo-item">
             <div class="saldo-item-label">Ingresos</div>
-            <div class="saldo-item-value" id="saldo-ingresos">$72,259.92</div>
+            <div class="saldo-item-value" id="saldo-ingresos">$0</div>
           </div>
           <div class="saldo-item">
             <div class="saldo-item-label">Gastos</div>
-            <div class="saldo-item-value" id="saldo-gastos">$29,123.43</div>
+            <div class="saldo-item-value" id="saldo-gastos">$0</div>
           </div>
           <div class="saldo-item">
             <div class="saldo-item-label">Ahorro</div>
-            <div class="saldo-item-value" id="saldo-ahorro">$43,136.49</div>
+            <div class="saldo-item-value" id="saldo-ahorro">$0</div>
           </div>
         </div>
       </div>
 
       <!-- Pct cards -->
       <div class="summary-grid home-card-reorderable" id="home-pct-grid">
-        <div class="summary-card" onclick="goTo(&#39;gastos&#39;)" style="cursor:pointer">
+        <div class="summary-card" onclick="goTo('gastos')" style="cursor:pointer">
           <div class="summary-label">% GASTOS</div>
-          <div class="summary-value red" id="pct-gastos">40.3%</div>
+          <div class="summary-value red" id="pct-gastos">--%</div>
           <div class="progress-wrap">
-            <div class="progress-bar"><div class="progress-fill red" id="bar-gastos" style="width: 40.3037%;"></div></div>
+            <div class="progress-bar"><div class="progress-fill red" id="bar-gastos" style="width:0%"></div></div>
           </div>
         </div>
-        <div class="summary-card" style="cursor:pointer" onclick="(function(){const el=document.getElementById(&#39;home-ahorro-card&#39;);const scroll=document.querySelector(&#39;#screen-home .scroll-area&#39;);if(el&amp;&amp;scroll)scroll.scrollTo({top:el.offsetTop-12,behavior:&#39;smooth&#39;});})()">
+        <div class="summary-card" style="cursor:pointer" onclick="(function(){const el=document.getElementById('home-ahorro-card');const scroll=document.querySelector('#screen-home .scroll-area');if(el&&scroll)scroll.scrollTo({top:el.offsetTop-12,behavior:'smooth'});})()">
           <div class="summary-label">% AHORRO</div>
-          <div class="summary-value green" id="pct-ahorro">59.7%</div>
+          <div class="summary-value green" id="pct-ahorro">--%</div>
           <div class="progress-wrap">
-            <div class="progress-bar"><div class="progress-fill green" id="bar-ahorro" style="width: 59.6963%;"></div></div>
+            <div class="progress-bar"><div class="progress-fill green" id="bar-ahorro" style="width:0%"></div></div>
           </div>
         </div>
       </div>
 
       <!-- Presupuesto compacto home -->
-      <div id="presupuesto-home-card" class="home-card-reorderable" style="display: block; margin-bottom: 8px;">
+      <div id="presupuesto-home-card" class="home-card-reorderable" style="display:none;margin-bottom:8px">
         <div class="card" id="presupuesto-top-card" style="margin-bottom:0">
           <!-- Header: title + % label + edit icon -->
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
             <div style="font-size:13px;font-weight:600;color:var(--text)">Presupuesto del Mes</div>
             <div style="display:flex;align-items:center;gap:8px">
-              <div style="font-size:12px;color:var(--text3)" id="presupuesto-home-label"><span style="color:var(--text3)">Sin definir</span></div>
-              <button id="pres-edit-btn" onclick="toggleEditPresupuesto()" title="Editar presupuesto" style="background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; color: var(--text3); cursor: pointer; padding: 2px; display: none; align-items: center; opacity: 0.55; flex-shrink: 0;">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+              <div style="font-size:12px;color:var(--text3)" id="presupuesto-home-label">—</div>
+              <button id="pres-edit-btn" onclick="toggleEditPresupuesto()" title="Editar presupuesto"
+                style="display:none;background:none;border:none;color:var(--text3);cursor:pointer;padding:2px;display:flex;align-items:center;opacity:0.55;flex-shrink:0">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
               </button>
             </div>
           </div>
           <!-- Bar + sub: click area to toggle breakdown or open modal -->
           <div id="pres-bar-area" onclick="onPresCardClick()" style="cursor:pointer">
             <div style="background:var(--surface3);border-radius:99px;height:6px;overflow:hidden;margin-bottom:6px">
-              <div id="presupuesto-home-bar" style="height: 100%; border-radius: 99px; width: 0%; transition: width 0.5s, background 0.3s; background: rgba(var(--accent2-rgb,168,85,247),0.30);"></div>
+              <div id="presupuesto-home-bar" style="height:100%;border-radius:99px;width:0%;transition:width 0.5s,background 0.3s"></div>
             </div>
             <div style="display:flex;justify-content:space-between;align-items:center">
               <div style="font-size:12px;color:var(--text2)" id="presupuesto-home-sub">Toca para definir presupuesto</div>
               <div id="pres-expand-chevron" style="display:none;color:var(--text3);transition:transform 0.25s;flex-shrink:0;margin-left:6px">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
               </div>
             </div>
           </div>
@@ -411,59 +412,59 @@
       <!-- Estado resultados -->
       <div class="card home-card-reorderable" id="home-estado-card">
         <div class="card-title">Estado del Mes</div>
-        <div id="estado-rows-sensitive" class="saldo-visible">
+        <div id="estado-rows-sensitive">
 
         <!-- 1. Inicio de Mes -->
         <div class="estado-row">
           <div style="display:flex;align-items:center;gap:8px">
             <span class="label">Inicio de Mes</span>
             <button onclick="openEditInicioMes()" style="background:none;border:none;color:var(--text3);cursor:pointer;padding:2px;display:flex;align-items:center;opacity:0.5">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
             </button>
           </div>
-          <span class="value" id="inicio-mes">$267,694.5</span>
+          <span class="value" id="inicio-mes">$0</span>
         </div>
 
         <!-- 2. (+) Ingresos -->
-        <div class="estado-row" onclick="goTo(&#39;ingresos&#39;)" style="cursor:pointer">
+        <div class="estado-row" onclick="goTo('ingresos')" style="cursor:pointer">
           <span class="label">(+) Ingresos del Mes</span>
-          <span class="value green" id="ingresos-estado">$72,259.92</span>
+          <span class="value green" id="ingresos-estado">$0</span>
         </div>
 
         <!-- 3. (-) Gastos del Mes -->
         <div class="estado-row">
           <span class="label">(-) Gastos del Mes</span>
-          <span class="value red" id="gastos-mes-estado">$29,123.43</span>
+          <span class="value red" id="gastos-mes-estado">$0</span>
         </div>
 
         <!-- 4a. Retiros Efectivo -->
         <div class="estado-row" style="flex-direction:column;align-items:stretch;gap:0">
-          <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="toggleDetalle(&#39;retiros-detalle&#39;)">
+          <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="toggleDetalle('retiros-detalle')">
             <div style="display:flex;align-items:center;gap:6px">
               <span class="label">(–) Retiros de Efectivo</span>
-              <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.2s" id="retiros-chevron"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+              <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.2s" id="retiros-chevron"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
             </div>
-            <span class="value red" id="retiros">$3,488.75</span>
+            <span class="value red" id="retiros">$0</span>
           </div>
-          <div id="retiros-detalle" style="display:none;margin-top:6px;padding-left:8px;border-left:2px solid rgba(240,64,96,0.3)"><div style="font-size:11px;color:var(--text3);padding:4px 0">Sin registros</div></div>
+          <div id="retiros-detalle" style="display:none;margin-top:6px;padding-left:8px;border-left:2px solid rgba(240,64,96,0.3)"></div>
         </div>
 
         <!-- 4b. Gastos Reembolsables (pendientes) -->
         <div class="estado-row" style="flex-direction:column;align-items:stretch;gap:0">
-          <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="toggleDetalle(&#39;reem-detalle&#39;)">
+          <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="toggleDetalle('reem-detalle')">
             <div style="display:flex;align-items:center;gap:6px">
               <span class="label">(–) Gastos Reembolsables</span>
-              <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.2s" id="reem-chevron"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+              <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.2s" id="reem-chevron"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
             </div>
             <span class="value red" id="gastos-reem">$0</span>
           </div>
-          <div id="reem-detalle" style="display:none;margin-top:6px;padding-left:8px;border-left:2px solid rgba(240,64,96,0.3)"><div style="font-size:11px;color:var(--text3);padding:4px 0">Sin reembolsables pendientes</div></div>
+          <div id="reem-detalle" style="display:none;margin-top:6px;padding-left:8px;border-left:2px solid rgba(240,64,96,0.3)"></div>
         </div>
 
         <!-- Saldo final -->
         <div class="estado-row" style="border-top:1px solid var(--border);margin-top:8px;padding-top:12px;">
           <span style="font-weight:700">Saldo Actual</span>
-          <span class="value green" id="saldo-actual-estado">$307,342.24</span>
+          <span class="value green" id="saldo-actual-estado">$0</span>
         </div>
         </div>
       </div>
@@ -474,59 +475,35 @@
           <div>
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
               <div class="card-title" style="margin-bottom:0">Progreso de Ahorro</div>
-              <div id="ahorro-este-mes-badge" style="font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 99px; color: var(--green); background: rgba(34, 211, 160, 0.12);">+$43,136.49</div>
+              <div id="ahorro-este-mes-badge" style="font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px;display:none">$0</div>
             </div>
             <div style="font-size:11px;color:var(--text3)">Acumulado en el año</div>
           </div>
           <div style="text-align:right">
             <div style="font-size:11px;color:var(--text3);margin-bottom:2px">Meta anual</div>
-            <div style="font-size:13px;font-weight:700;color:var(--accent2)" id="ahorro-meta-label">$200,000</div>
+            <div style="font-size:13px;font-weight:700;color:var(--accent2)" id="ahorro-meta-label">$0</div>
           </div>
         </div>
 
         <!-- Big ahorro number -->
         <div style="margin-bottom:14px">
-          <div style="font-size:30px;font-weight:800;color:var(--accent2);letter-spacing:-1px;line-height:1" id="ahorro-acum">$128,837.99</div>
-          <div style="font-size:12px;color:var(--accent2);opacity:0.6;margin-top:3px" id="ahorro-acum-usd">$7,079.01 USD</div>
+          <div style="font-size:30px;font-weight:800;color:var(--accent2);letter-spacing:-1px;line-height:1" id="ahorro-acum">$0</div>
+          <div style="font-size:12px;color:var(--accent2);opacity:0.6;margin-top:3px" id="ahorro-acum-usd">$0 USD</div>
         </div>
 
         <!-- Progress bar -->
         <div style="margin-bottom:14px">
           <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text3);margin-bottom:6px">
-            <span id="ahorro-pct-label">64.4% de la meta</span>
-            <span id="ahorro-falta-label">Faltan $71,162.01</span>
+            <span id="ahorro-pct-label">0% de la meta</span>
+            <span id="ahorro-falta-label">Faltan $0</span>
           </div>
           <div style="background:var(--surface3);border-radius:99px;height:8px;overflow:hidden">
-            <div id="ahorro-progress-bar" style="height: 100%; border-radius: 99px; background: linear-gradient(90deg,var(--accent),var(--accent2)); transition: width 0.6s; width: 64.419%;"></div>
+            <div id="ahorro-progress-bar" style="height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width 0.6s ease;width:0%"></div>
           </div>
         </div>
 
         <!-- Monthly breakdown mini bars -->
-        <div style="display:flex;gap:4px;align-items:flex-end;height:36px" id="ahorro-mini-bars"><div onclick="state.currentMonth=0;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:36px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=1;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:18px;background:var(--accent2);opacity:1;border-radius:3px 3px 0 0;transition:all 0.2s;box-shadow:0 0 6px var(--accent2)"></div>
-    </div><div onclick="state.currentMonth=2;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:3px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=3;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:14px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=4;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:3px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=5;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:3px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=6;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:3px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=7;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:3px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=8;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:3px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=9;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:3px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=10;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:3px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div><div onclick="state.currentMonth=11;render()" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:36px;cursor:pointer">
-      <div style="width:100%;height:3px;background:var(--accent2);opacity:0.35;border-radius:3px 3px 0 0;transition:all 0.2s;"></div>
-    </div></div>
+        <div style="display:flex;gap:4px;align-items:flex-end;height:36px" id="ahorro-mini-bars"></div>
         <div style="display:flex;justify-content:space-between;margin-top:4px">
           <div style="font-size:10px;color:var(--text3)">Ene</div>
           <div style="font-size:10px;color:var(--text3)">Dic</div>
@@ -544,10 +521,10 @@
       <div class="card home-card-reorderable" id="home-rend-card">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
           <div class="card-title" style="margin-bottom:0">Rendimientos del Mes</div>
-          <div id="rend-chip" style="display: block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 99px; letter-spacing: 0.3px; color: var(--green); background: rgba(34, 211, 160, 0.15);">▲ +12.2%</div>
+          <div id="rend-chip" style="display:none;font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;letter-spacing:0.3px"></div>
         </div>
-        <div class="rend-value" id="rendimientos-home">$1,875</div>
-        <div id="rend-diff" style="font-size: 11px; color: var(--green); margin-top: 4px; opacity: 0.7;">+$204.17 vs ant.</div>
+        <div class="rend-value" id="rendimientos-home">$0</div>
+        <div id="rend-diff" style="font-size:11px;color:var(--text3);margin-top:4px">Inversiones</div>
       </div>
 
       <!-- Mes anterior comparison -->
@@ -555,18 +532,18 @@
         <div class="summary-card" id="vs-ing-card">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
             <div style="font-size:10px;font-weight:600;color:var(--text3);letter-spacing:0.6px;text-transform:uppercase">Ingreso</div>
-            <div id="vs-ing-chip" style="display: block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 99px; letter-spacing: 0.3px; color: var(--red); background: rgba(240, 64, 96, 0.15);">▼ -43.0%</div>
+            <div id="vs-ing-chip" style="display:none;font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;letter-spacing:0.3px"></div>
           </div>
-          <div id="vs-ingreso" style="font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--red);">-43.0%</div>
-          <div id="vs-ing-diff" style="font-size: 11px; margin-top: 4px; color: var(--red); opacity: 0.7;">-$54,601.53 vs ant.</div>
+          <div id="vs-ingreso" style="font-size:22px;font-weight:800;letter-spacing:-0.5px;color:var(--text2)">--</div>
+          <div id="vs-ing-diff" style="font-size:11px;margin-top:4px;color:var(--text3)">vs mes anterior</div>
         </div>
         <div class="summary-card" id="vs-gas-card">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
             <div style="font-size:10px;font-weight:600;color:var(--text3);letter-spacing:0.6px;text-transform:uppercase">Gasto</div>
-            <div id="vs-gas-chip" style="display: block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 99px; letter-spacing: 0.3px; color: var(--green); background: rgba(34, 211, 160, 0.15);">▼ -29.2%</div>
+            <div id="vs-gas-chip" style="display:none;font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;letter-spacing:0.3px"></div>
           </div>
-          <div id="vs-gasto" style="font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--green);">-29.2%</div>
-          <div id="vs-gas-diff" style="font-size: 11px; margin-top: 4px; color: var(--green); opacity: 0.7;">-$12,036.52 vs ant.</div>
+          <div id="vs-gasto" style="font-size:22px;font-weight:800;letter-spacing:-0.5px;color:var(--text2)">--</div>
+          <div id="vs-gas-diff" style="font-size:11px;margin-top:4px;color:var(--text3)">vs mes anterior</div>
         </div>
       </div>
     </div>
@@ -578,17 +555,20 @@
       <div style="display:flex;align-items:center;justify-content:space-between">
         <div class="page-title">Gastos</div>
         <button id="search-gastos-btn" onclick="toggleGastosSearch()" style="background:var(--surface2);border:1px solid var(--border);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;flex-shrink:0" title="Buscar gasto">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text2)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text2)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </button>
       </div>
       <!-- Search bar (hidden by default) -->
       <div id="gastos-search-bar" style="display:none;margin-top:10px;position:relative">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--text3)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);pointer-events:none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input id="gastos-search-input" type="text" placeholder="Buscar gasto por nombre…" autocomplete="off" inputmode="search" enterkeyhint="search" oninput="onGastosSearch(this.value)" style="width:100%;background:var(--surface2);border:1px solid var(--accent);border-radius:var(--radius-sm);padding:10px 36px 10px 36px;font-size:14px;color:var(--text);font-family:inherit;outline:none;-webkit-appearance:none">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--text3)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);pointer-events:none"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="gastos-search-input" type="text" placeholder="Buscar gasto por nombre…" autocomplete="off"
+          inputmode="search" enterkeyhint="search"
+          oninput="onGastosSearch(this.value)"
+          style="width:100%;background:var(--surface2);border:1px solid var(--accent);border-radius:var(--radius-sm);padding:10px 36px 10px 36px;font-size:14px;color:var(--text);font-family:inherit;outline:none;-webkit-appearance:none">
         <button id="gastos-search-clear" onclick="clearGastosSearch()" style="display:none;position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text3);font-size:16px;cursor:pointer;padding:2px 4px;line-height:1">✕</button>
       </div>
     </div>
-    <div class="month-selector" id="month-selector-gastos"><div class="month-chip " onclick="selectMonth(0)">Ene</div><div class="month-chip active" onclick="selectMonth(1)">Feb</div><div class="month-chip " onclick="selectMonth(2)">Mar</div><div class="month-chip " onclick="selectMonth(3)">Abr</div><div class="month-chip " onclick="selectMonth(4)">May</div><div class="month-chip " onclick="selectMonth(5)">Jun</div><div class="month-chip " onclick="selectMonth(6)">Jul</div><div class="month-chip " onclick="selectMonth(7)">Ago</div><div class="month-chip " onclick="selectMonth(8)">Sep</div><div class="month-chip " onclick="selectMonth(9)">Oct</div><div class="month-chip " onclick="selectMonth(10)">Nov</div><div class="month-chip " onclick="selectMonth(11)">Dic</div></div>
+    <div class="month-selector" id="month-selector-gastos"></div>
     <div class="scroll-area" id="gastos-scroll">
 
       <!-- Total gastos banner -->
@@ -603,8 +583,8 @@
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
           <div class="card-title" style="margin-bottom:0">Análisis por Categoría</div>
           <div style="display:flex;align-items:center;background:var(--surface3);border-radius:99px;padding:3px;gap:2px">
-            <button id="cat-mode-ing" onclick="setCatMode(&#39;ing&#39;)" style="border:none;border-radius:99px;padding:4px 10px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;background:var(--surface);color:var(--text);transition:all 0.2s">vs Ingreso</button>
-            <button id="cat-mode-gas" onclick="setCatMode(&#39;gas&#39;)" style="border:none;border-radius:99px;padding:4px 10px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;background:transparent;color:var(--text3);transition:all 0.2s">vs Gasto</button>
+            <button id="cat-mode-gas" onclick="setCatMode('gas')" style="border:none;border-radius:99px;padding:4px 10px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;background:var(--surface);color:var(--text);transition:all 0.2s">vs Gasto</button>
+            <button id="cat-mode-ing" onclick="setCatMode('ing')" style="border:none;border-radius:99px;padding:4px 10px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;background:transparent;color:var(--text3);transition:all 0.2s">vs Ingreso</button>
           </div>
         </div>
         <div id="cat-analysis-list"></div>
@@ -636,7 +616,7 @@
         </div>
         <!-- Search results notice -->
         <div id="gastos-search-notice" style="display:none;font-size:12px;color:var(--accent2);margin-bottom:10px;display:flex;align-items:center;gap:6px">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           <span id="gastos-search-notice-text"></span>
         </div>
         <div id="gastos-variables-list">
@@ -651,7 +631,9 @@
           <span style="font-size:12px;color:var(--text2)">Total retiros</span>
           <span style="font-size:16px;font-weight:700;color:var(--red)" id="retiros-total-mxn">$0</span>
         </div>
-        <div id="retiros-full-list"><div class="empty-state"><div class="empty-icon">💵</div><div class="empty-text">Sin retiros este mes</div></div></div>
+        <div id="retiros-full-list">
+          <div class="empty-state"><div class="empty-icon">💵</div><div class="empty-text">Sin retiros este mes</div></div>
+        </div>
       </div>
 
       <!-- Gastos Reembolsables -->
@@ -661,11 +643,13 @@
           <span style="font-size:12px;color:var(--text2)">Total reembolsables</span>
           <span style="font-size:16px;font-weight:700;color:var(--red)" id="reem-total-mxn">$0</span>
         </div>
-        <div id="reem-full-list"><div class="empty-state"><div class="empty-icon">🔄</div><div class="empty-text">Sin reembolsables este mes</div></div></div>
+        <div id="reem-full-list">
+          <div class="empty-state"><div class="empty-icon">🔄</div><div class="empty-text">Sin reembolsables este mes</div></div>
+        </div>
       </div>
     </div>
     <!-- FAB -->
-    <button class="fab" onclick="openModal(&#39;gasto&#39;)" id="fab-gasto" style="box-shadow: rgba(225, 29, 72, 0.5) 0px 4px 20px;">＋</button>
+    <button class="fab" onclick="openModal('gasto')" id="fab-gasto">＋</button>
   </div>
 
   <!-- ===== SCREEN: INGRESOS ===== -->
@@ -673,7 +657,7 @@
     <div class="page-header">
       <div class="page-title">Ingresos</div>
     </div>
-    <div class="month-selector" id="month-selector-ingresos"><div class="month-chip " onclick="selectMonth(0)">Ene</div><div class="month-chip active" onclick="selectMonth(1)">Feb</div><div class="month-chip " onclick="selectMonth(2)">Mar</div><div class="month-chip " onclick="selectMonth(3)">Abr</div><div class="month-chip " onclick="selectMonth(4)">May</div><div class="month-chip " onclick="selectMonth(5)">Jun</div><div class="month-chip " onclick="selectMonth(6)">Jul</div><div class="month-chip " onclick="selectMonth(7)">Ago</div><div class="month-chip " onclick="selectMonth(8)">Sep</div><div class="month-chip " onclick="selectMonth(9)">Oct</div><div class="month-chip " onclick="selectMonth(10)">Nov</div><div class="month-chip " onclick="selectMonth(11)">Dic</div></div>
+    <div class="month-selector" id="month-selector-ingresos"></div>
     <div class="scroll-area">
 
       <!-- Total ingresos banner -->
@@ -686,12 +670,12 @@
       <div class="card">
         <div class="card-title">Ingresos del Mes</div>
         <div id="ingresos-list">
-          <div class="empty-state"><div class="empty-icon" style="font-size:0;display:flex;justify-content:center;margin-bottom:12px"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--text3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg></div><div class="empty-text">No hay ingresos registrados</div></div>
+          <div class="empty-state"><div class="empty-icon" style="font-size:0;display:flex;justify-content:center;margin-bottom:12px"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--text3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></div><div class="empty-text">No hay ingresos registrados</div></div>
         </div>
       </div>
 
     </div>
-    <button class="fab" onclick="openModal(&#39;ingreso&#39;)">＋</button>
+    <button class="fab" onclick="openModal('ingreso')">＋</button>
   </div>
 
   <!-- ===== SCREEN: ANÁLISIS ===== -->
@@ -719,7 +703,7 @@
               </div>
               <div style="display:flex;align-items:center;gap:4px;color:rgba(34,211,160,0.6);font-size:10px;font-weight:600">
                 <span id="ing-desglose-chevron-label">VER FUENTES</span>
-                <svg id="ing-desglose-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transition:transform 0.25s"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg id="ing-desglose-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transition:transform 0.25s"><polyline points="6 9 12 15 18 9"/></svg>
               </div>
             </div>
           </div>
@@ -757,7 +741,7 @@
               </div>
               <div style="display:flex;align-items:center;gap:4px;color:rgba(240,64,96,0.6);font-size:10px;font-weight:600">
                 <span id="gas-desglose-chevron-label">VER CATEGORÍAS</span>
-                <svg id="gas-desglose-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transition:transform 0.25s"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg id="gas-desglose-chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transition:transform 0.25s"><polyline points="6 9 12 15 18 9"/></svg>
               </div>
             </div>
           </div>
@@ -776,8 +760,8 @@
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
               <div style="font-size:10px;font-weight:600;color:rgba(240,64,96,0.5);text-transform:uppercase;letter-spacing:0.8px">Gastos por Categoría — Anual</div>
               <div style="display:flex;background:var(--surface3);border-radius:99px;padding:3px;gap:2px">
-                <button id="cat-view-list-btn" onclick="setCatView(&#39;list&#39;);event.stopPropagation()" style="border:none;border-radius:99px;padding:4px 10px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;background:#0a0a0f;color:#ffffff;transition:all 0.2s">≡ Lista</button>
-                <button id="cat-view-pie-btn" onclick="setCatView(&#39;pie&#39;);event.stopPropagation()" style="border:none;border-radius:99px;padding:4px 10px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;background:transparent;color:var(--text3);transition:all 0.2s">◉ Pie</button>
+                <button id="cat-view-list-btn" onclick="setCatView('list');event.stopPropagation()" style="border:none;border-radius:99px;padding:4px 10px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;background:#0a0a0f;color:#ffffff;transition:all 0.2s">≡ Lista</button>
+                <button id="cat-view-pie-btn" onclick="setCatView('pie');event.stopPropagation()" style="border:none;border-radius:99px;padding:4px 10px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;background:transparent;color:var(--text3);transition:all 0.2s">◉ Pie</button>
               </div>
             </div>
             <div id="year-cat-list"></div>
@@ -785,16 +769,16 @@
         </div>
       </div>
 
-      <div id="big-stat-ahorro" style="background: rgb(26, 26, 36); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 10px; box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 16px;">
+      <div id="big-stat-ahorro" style="background:#1a1a24;border:1px solid rgba(168,85,247,0.4);border-radius:var(--radius);padding:18px 20px;margin-bottom:10px;box-shadow:0 2px 16px rgba(0,0,0,0.4)">
         <div style="display:flex;justify-content:space-between;align-items:flex-start">
           <div>
-            <div id="ahorro-title-label" style="font-size: 11px; font-weight: 600; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px;">◈ Ahorro Total</div>
-            <div style="font-size: 30px; font-weight: 800; color: rgb(255, 255, 255); letter-spacing: -1px; line-height: 1;" id="year-ahorros">$0</div>
-            <div style="font-size: 12px; color: rgba(255, 255, 255, 0.55); margin-top: 4px;" id="year-ahorros-usd">$0 USD</div>
+            <div id="ahorro-title-label" style="font-size:11px;font-weight:600;color:var(--accent2);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px">◈ Ahorro Total</div>
+            <div style="font-size:30px;font-weight:800;color:var(--text);letter-spacing:-1px;line-height:1" id="year-ahorros">$0</div>
+            <div style="font-size:12px;color:var(--text2);margin-top:4px" id="year-ahorros-usd">$0 USD</div>
           </div>
           <div style="text-align:right">
             <div style="font-size:10px;color:var(--text2);margin-bottom:4px">Promedio mensual</div>
-            <div style="font-size: 16px; font-weight: 700; color: rgb(255, 255, 255);" id="avg-ahorros">$0</div>
+            <div style="font-size:16px;font-weight:700;color:var(--accent2)" id="avg-ahorros">$0</div>
           </div>
         </div>
         <div style="margin-top:14px">
@@ -802,7 +786,7 @@
             <span>Tasa de ahorro</span><span id="pct-ahorro-year">0%</span>
           </div>
           <div style="background:rgba(255,255,255,0.08);border-radius:99px;height:4px;overflow:hidden">
-            <div id="bar-aho-fill" style="height: 100%; background: rgba(255, 255, 255, 0.5); border-radius: 99px; transition: width 0.5s;"></div>
+            <div id="bar-aho-fill" style="height:100%;background:var(--accent2);border-radius:99px;transition:width 0.5s"></div>
           </div>
         </div>
       </div>
@@ -860,17 +844,17 @@
 
 
       <div class="card" style="padding:0;overflow:hidden;margin-bottom:8px">
-        <div onclick="togglePanel(&#39;fijos&#39;)" style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer">
+        <div onclick="togglePanel('fijos')" style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer">
           <div style="display:flex;align-items:center;gap:10px">
             <span style="font-size:13px;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:0.5px">Gastos Fijos</span>
           </div>
           <div style="display:flex;align-items:center;gap:10px">
-            <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.25s" id="fijos-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+            <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.25s" id="fijos-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
           </div>
         </div>
         <div id="fijos-panel" style="display:none;border-top:1px solid var(--border)">
           <div style="padding:10px 16px 6px;display:flex;justify-content:space-between;align-items:center">
-            <div id="fijos-color-dot" onclick="openFijosColorModal()" style="width:14px;height:14px;border-radius:4px;background:${CAT_COLORS[&#39;Gastos Fijos&#39;]||&#39;#7c5cfc&#39;};cursor:pointer;border:2px solid rgba(255,255,255,0.15)" title="Cambiar color"></div>
+            <div id="fijos-color-dot" onclick="openFijosColorModal()" style="width:14px;height:14px;border-radius:4px;background:${CAT_COLORS['Gastos Fijos']||'#7c5cfc'};cursor:pointer;border:2px solid rgba(255,255,255,0.15)" title="Cambiar color"></div>
             <button onclick="openAddFijo()" style="background:var(--accent);border:none;color:white;border-radius:99px;padding:4px 12px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">＋ Nuevo</button>
           </div>
           <div id="fijos-config-list"></div>
@@ -878,10 +862,10 @@
       </div>
 
       <div class="card" style="padding:0;overflow:hidden;margin-bottom:8px">
-        <div onclick="togglePanel(&#39;cats&#39;)" style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer">
+        <div onclick="togglePanel('cats')" style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer">
           <span style="font-size:13px;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:0.5px">Categorías de Gastos Variables</span>
           <div style="display:flex;align-items:center;gap:10px">
-            <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.25s" id="cats-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+            <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.25s" id="cats-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
           </div>
         </div>
         <div id="cats-panel" style="display:none;border-top:1px solid var(--border)">
@@ -896,7 +880,7 @@
         <div onclick="toggleConceptosPanel()" style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer">
           <span style="font-size:13px;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:0.5px">Conceptos de Ingresos</span>
           <div style="display:flex;align-items:center;gap:10px">
-            <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.25s" id="conceptos-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+            <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.25s" id="conceptos-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
           </div>
         </div>
         <div id="conceptos-panel" style="display:none;border-top:1px solid var(--border)">
@@ -908,10 +892,10 @@
       </div>
 
       <div class="card" style="padding:0;overflow:hidden;margin-bottom:8px">
-        <div onclick="togglePanel(&#39;rend&#39;)" style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer">
+        <div onclick="togglePanel('rend')" style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer">
           <span style="font-size:13px;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:0.5px">Rendimientos Mensuales</span>
           <div style="display:flex;align-items:center;gap:10px">
-            <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.25s" id="rend-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+            <span style="display:flex;align-items:center;color:var(--text3);transition:transform 0.25s" id="rend-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
           </div>
         </div>
         <div id="rend-panel" style="display:none;border-top:1px solid var(--border)">
@@ -1015,7 +999,8 @@
 
       <!-- Botón "+" y formulario de agregar -->
       <div id="cat-pres-add-wrap">
-        <button id="cat-pres-add-btn" onclick="showCatAddForm()" style="width:100%;background:var(--surface2);border:1.5px dashed var(--border);border-radius:var(--radius-sm);padding:11px;font-size:13px;font-weight:600;color:var(--text2);cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:6px;transition:all 0.2s;margin-bottom:16px">
+        <button id="cat-pres-add-btn" onclick="showCatAddForm()"
+          style="width:100%;background:var(--surface2);border:1.5px dashed var(--border);border-radius:var(--radius-sm);padding:11px;font-size:13px;font-weight:600;color:var(--text2);cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:6px;transition:all 0.2s;margin-bottom:16px">
           <span style="font-size:18px;line-height:1">＋</span> Agregar categoría
         </button>
         <!-- Formulario inline de agregar (hidden by default) -->
@@ -1079,7 +1064,7 @@
         <div style="background:rgba(240,64,96,0.08);border:1px solid rgba(240,64,96,0.2);border-radius:var(--radius-sm);padding:16px;margin-bottom:10px">
           <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px">Borrar todo el año</div>
           <div style="font-size:12px;color:var(--text3);margin-bottom:12px">Elimina todos los ingresos y gastos de todos los meses.</div>
-          <button class="btn-primary" style="background:var(--red);margin-top:0;padding:10px" onclick="goConfirmReset(&#39;todo&#39;)">Borrar todo</button>
+          <button class="btn-primary" style="background:var(--red);margin-top:0;padding:10px" onclick="goConfirmReset('todo')">Borrar todo</button>
         </div>
 
         <div style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;margin-bottom:10px">
@@ -1088,7 +1073,7 @@
           <select class="form-input" id="reset-mes-select" style="margin-bottom:10px">
             <option value="">— Selecciona un mes —</option>
           </select>
-          <button class="btn-primary" style="background:rgba(240,64,96,0.7);margin-top:0;padding:10px" onclick="goConfirmReset(&#39;mes&#39;)">Restablecer mes</button>
+          <button class="btn-primary" style="background:rgba(240,64,96,0.7);margin-top:0;padding:10px" onclick="goConfirmReset('mes')">Restablecer mes</button>
         </div>
 
         <button class="btn-primary" style="background:transparent;color:var(--text2);margin-top:4px" onclick="closeResetModal()">Cancelar</button>
@@ -1125,7 +1110,9 @@
       <div class="form-group">
         <label class="form-label">Color</label>
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
-          <input type="color" id="cat-color-native" value="#7c5cfc" oninput="onNativeColorChange(this.value)" style="width:44px;height:44px;border-radius:12px;border:2px solid var(--border);background:none;cursor:pointer;padding:2px">
+          <input type="color" id="cat-color-native" value="#7c5cfc"
+            oninput="onNativeColorChange(this.value)"
+            style="width:44px;height:44px;border-radius:12px;border:2px solid var(--border);background:none;cursor:pointer;padding:2px">
           <span style="font-size:12px;color:var(--text2)">Elige cualquier color del espectro</span>
         </div>
         <div id="cat-color-picker" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:4px"></div>
@@ -1214,23 +1201,23 @@
 
 
   <nav class="navbar">
-    <div class="nav-item active" onclick="goTo(&#39;home&#39;)" id="nav-home">
+    <div class="nav-item active" onclick="goTo('home')" id="nav-home">
       <div class="nav-icon">🏠</div>
       <div class="nav-label">Inicio</div>
     </div>
-    <div class="nav-item" onclick="goTo(&#39;ingresos&#39;)" id="nav-ingresos">
+    <div class="nav-item" onclick="goTo('ingresos')" id="nav-ingresos">
       <div class="nav-icon">💰</div>
       <div class="nav-label">Ingresos</div>
     </div>
-    <div class="nav-item" onclick="goTo(&#39;gastos&#39;)" id="nav-gastos">
+    <div class="nav-item" onclick="goTo('gastos')" id="nav-gastos">
       <div class="nav-icon">💸</div>
       <div class="nav-label">Gastos</div>
     </div>
-    <div class="nav-item" onclick="goTo(&#39;analisis&#39;)" id="nav-analisis">
+    <div class="nav-item" onclick="goTo('analisis')" id="nav-analisis">
       <div class="nav-icon">📊</div>
       <div class="nav-label">Anual</div>
     </div>
-    <div class="nav-item" onclick="goTo(&#39;config&#39;)" id="nav-config">
+    <div class="nav-item" onclick="goTo('config')" id="nav-config">
       <div class="nav-icon">⚙️</div>
       <div class="nav-label">Config</div>
     </div>
@@ -1243,9 +1230,9 @@
       <div class="modal-title" id="modal-title">Agregar Gasto</div>
 
       <div class="segment" id="tipo-segment">
-        <button class="segment-btn" onclick="setTipoGasto(&#39;variable&#39;)">Variable</button>
-        <button class="segment-btn active" onclick="setTipoGasto(&#39;ingreso&#39;)">Ingreso</button>
-        <button class="segment-btn" onclick="setTipoGasto(&#39;retiro&#39;)">Retiro/Otro</button>
+        <button class="segment-btn" onclick="setTipoGasto('variable')">Variable</button>
+        <button class="segment-btn active" onclick="setTipoGasto('ingreso')">Ingreso</button>
+        <button class="segment-btn" onclick="setTipoGasto('retiro')">Retiro/Otro</button>
       </div>
 
       <div id="form-gasto-fields">
@@ -1351,13 +1338,15 @@
     <div class="modal-title">Color — Gastos Fijos</div>
     <div style="font-size:13px;color:var(--text2);margin-bottom:14px">Este color aplica a todos los gastos fijos como grupo.</div>
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
-      <input type="color" id="fijos-color-native" value="#7c5cfc" oninput="onFijosGroupNativeColor(this.value)" style="width:44px;height:44px;border-radius:12px;border:2px solid var(--border);background:none;cursor:pointer;padding:2px">
+      <input type="color" id="fijos-color-native" value="#7c5cfc"
+        oninput="onFijosGroupNativeColor(this.value)"
+        style="width:44px;height:44px;border-radius:12px;border:2px solid var(--border);background:none;cursor:pointer;padding:2px">
       <span style="font-size:12px;color:var(--text2)">Elige cualquier color del espectro</span>
     </div>
     <div id="fijos-group-color-picker" style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px"></div>
     <input type="hidden" id="fijos-group-color-selected" value="">
     <button class="btn-primary" onclick="saveFijosGroupColor()">Guardar</button>
-    <button class="btn-primary" style="background:transparent;color:var(--text2);margin-top:8px" onclick="document.getElementById(&#39;modal-fijos-color&#39;).classList.remove(&#39;open&#39;)">Cancelar</button>
+    <button class="btn-primary" style="background:transparent;color:var(--text2);margin-top:8px" onclick="document.getElementById('modal-fijos-color').classList.remove('open')">Cancelar</button>
   </div>
 </div>
 
@@ -1457,7 +1446,7 @@
 </div>
 </div>
 
-<script src="./index_files/xlsx.full.min.js"></script>
+<!-- XLSX export: implementación inline (sin CDN externo) más abajo en el código -->
 <script>
 // ================== STATE ==================
 const MONTHS = ['ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE'];
@@ -3680,7 +3669,7 @@ function buildIngSelect() {
   ).join('') + `<option value="otro">Otro</option>`;
 }
 
-let catAnalysisMode = 'ing';
+let catAnalysisMode = (state.catAnalysisMode === 'ing' || state.catAnalysisMode === 'gas') ? state.catAnalysisMode : 'gas';
 let activeCatFilters = new Set(); // multi-select set of category names
 
 function setCatFilter(cat, m) {
@@ -3694,6 +3683,8 @@ function setCatFilter(cat, m) {
 
 function setCatMode(mode) {
   catAnalysisMode = mode;
+  state.catAnalysisMode = mode;
+  saveState();
   document.getElementById('cat-mode-ing').style.background = mode === 'ing' ? 'var(--surface)' : 'transparent';
   document.getElementById('cat-mode-ing').style.color = mode === 'ing' ? 'var(--text)' : 'var(--text3)';
   document.getElementById('cat-mode-gas').style.background = mode === 'gas' ? 'var(--surface)' : 'transparent';
@@ -3707,12 +3698,12 @@ function selectChartBar(barEl, containerId) {
   const idx = parseInt(barEl.dataset.idx);
   const isSelected = barEl.dataset.selected === '1';
 
-  // Reset all bars
+  // Reset all bars (also clear textContent so no value lingers visible)
   container.querySelectorAll('[data-idx]').forEach(b => {
     const fill = b.querySelector('[data-fill]');
     const lbl  = b.querySelector('[data-label]');
     if (fill) { fill.style.opacity = '0.85'; fill.style.filter = 'none'; }
-    if (lbl)  { lbl.style.opacity = '0'; }
+    if (lbl)  { lbl.style.opacity = '0'; lbl.textContent = ''; }
     b.dataset.selected = '0';
   });
 
@@ -4211,21 +4202,180 @@ function toggleUSD() {
   saveState();
   render();
 }
-function exportToExcel(targetYear) {
-  // Verificar que la librería XLSX está cargada
-  if (typeof XLSX === 'undefined') {
-    alert('La librería de Excel aún se está cargando. Por favor espera unos segundos e intenta de nuevo.');
-    return;
+// ============================================================
+// Inline XLSX generator (NO external library, works fully offline in PWA)
+// Genera un .xlsx válido escribiendo los XML internos + un ZIP "stored"
+// (sin compresión). Soporta múltiples hojas, números, y texto.
+// ============================================================
+const _crc32Table = (() => {
+  const t = new Uint32Array(256);
+  for (let n = 0; n < 256; n++) {
+    let c = n;
+    for (let k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+    t[n] = c >>> 0;
   }
+  return t;
+})();
+function _crc32(bytes) {
+  let crc = 0xFFFFFFFF;
+  for (let i = 0; i < bytes.length; i++) {
+    crc = _crc32Table[(crc ^ bytes[i]) & 0xFF] ^ (crc >>> 8);
+  }
+  return (crc ^ 0xFFFFFFFF) >>> 0;
+}
+function _xmlEscape(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+}
+function _colLetter(n) {
+  let s = '';
+  while (n > 0) {
+    const r = (n - 1) % 26;
+    s = String.fromCharCode(65 + r) + s;
+    n = Math.floor((n - 1) / 26);
+  }
+  return s;
+}
+// Excel restringe nombres de hoja: máx 31 chars y excluye : \ / ? * [ ]
+function _safeSheetName(name) {
+  return String(name).replace(/[:\\\/\?\*\[\]]/g, ' ').slice(0, 31) || 'Sheet';
+}
+function _makeSheetXml(rows) {
+  let xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n';
+  xml += '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetData>';
+  rows.forEach((row, ri) => {
+    if (!row || row.length === 0) return;  // hueco visible: omitimos fila vacía
+    xml += `<row r="${ri+1}">`;
+    row.forEach((cell, ci) => {
+      if (cell == null || cell === '') return;
+      const ref = _colLetter(ci+1) + (ri+1);
+      if (typeof cell === 'number' && isFinite(cell)) {
+        xml += `<c r="${ref}"><v>${cell}</v></c>`;
+      } else {
+        xml += `<c r="${ref}" t="inlineStr"><is><t xml:space="preserve">${_xmlEscape(cell)}</t></is></c>`;
+      }
+    });
+    xml += '</row>';
+  });
+  xml += '</sheetData></worksheet>';
+  return xml;
+}
+function _makeXlsxBlob(sheets) {
+  // sheets = [{name, rows}]
+  const enc = new TextEncoder();
+  const files = {};
 
+  // [Content_Types].xml
+  let ct = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n';
+  ct += '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">';
+  ct += '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>';
+  ct += '<Default Extension="xml" ContentType="application/xml"/>';
+  ct += '<Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>';
+  sheets.forEach((s, i) => {
+    ct += `<Override PartName="/xl/worksheets/sheet${i+1}.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>`;
+  });
+  ct += '</Types>';
+  files['[Content_Types].xml'] = ct;
+
+  // _rels/.rels
+  files['_rels/.rels'] = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>';
+
+  // xl/workbook.xml
+  let wb = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n';
+  wb += '<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>';
+  sheets.forEach((s, i) => {
+    wb += `<sheet name="${_xmlEscape(_safeSheetName(s.name))}" sheetId="${i+1}" r:id="rId${i+1}"/>`;
+  });
+  wb += '</sheets></workbook>';
+  files['xl/workbook.xml'] = wb;
+
+  // xl/_rels/workbook.xml.rels
+  let wbRels = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">';
+  sheets.forEach((s, i) => {
+    wbRels += `<Relationship Id="rId${i+1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet${i+1}.xml"/>`;
+  });
+  wbRels += '</Relationships>';
+  files['xl/_rels/workbook.xml.rels'] = wbRels;
+
+  // Each worksheet
+  sheets.forEach((s, i) => {
+    files[`xl/worksheets/sheet${i+1}.xml`] = _makeSheetXml(s.rows);
+  });
+
+  // ── ZIP build (stored, no compression) ─────────────────────
+  const fileEntries = [];
+  let offset = 0;
+  Object.entries(files).forEach(([name, content]) => {
+    const nameBytes = enc.encode(name);
+    const dataBytes = enc.encode(content);
+    const crc = _crc32(dataBytes);
+    const header = new Uint8Array(30 + nameBytes.length);
+    const v = new DataView(header.buffer);
+    v.setUint32(0, 0x04034b50, true);
+    v.setUint16(4, 20, true);
+    v.setUint16(6, 0, true);
+    v.setUint16(8, 0, true);
+    v.setUint16(10, 0, true);
+    v.setUint16(12, 0x21, true);
+    v.setUint32(14, crc, true);
+    v.setUint32(18, dataBytes.length, true);
+    v.setUint32(22, dataBytes.length, true);
+    v.setUint16(26, nameBytes.length, true);
+    v.setUint16(28, 0, true);
+    header.set(nameBytes, 30);
+    fileEntries.push({ header, data: dataBytes, name: nameBytes, crc, offset, size: dataBytes.length });
+    offset += header.length + dataBytes.length;
+  });
+  const cdEntries = [];
+  let cdSize = 0;
+  fileEntries.forEach(entry => {
+    const cd = new Uint8Array(46 + entry.name.length);
+    const v = new DataView(cd.buffer);
+    v.setUint32(0, 0x02014b50, true);
+    v.setUint16(4, 20, true); v.setUint16(6, 20, true);
+    v.setUint16(8, 0, true); v.setUint16(10, 0, true);
+    v.setUint16(12, 0, true); v.setUint16(14, 0x21, true);
+    v.setUint32(16, entry.crc, true);
+    v.setUint32(20, entry.size, true);
+    v.setUint32(24, entry.size, true);
+    v.setUint16(28, entry.name.length, true);
+    v.setUint16(30, 0, true); v.setUint16(32, 0, true);
+    v.setUint16(34, 0, true); v.setUint16(36, 0, true);
+    v.setUint32(38, 0, true);
+    v.setUint32(42, entry.offset, true);
+    cd.set(entry.name, 46);
+    cdEntries.push(cd);
+    cdSize += cd.length;
+  });
+  const eocd = new Uint8Array(22);
+  const ev = new DataView(eocd.buffer);
+  ev.setUint32(0, 0x06054b50, true);
+  ev.setUint16(4, 0, true); ev.setUint16(6, 0, true);
+  ev.setUint16(8, fileEntries.length, true);
+  ev.setUint16(10, fileEntries.length, true);
+  ev.setUint32(12, cdSize, true);
+  ev.setUint32(16, offset, true);
+  ev.setUint16(20, 0, true);
+
+  const totalSize = offset + cdSize + 22;
+  const result = new Uint8Array(totalSize);
+  let pos = 0;
+  fileEntries.forEach(e => {
+    result.set(e.header, pos); pos += e.header.length;
+    result.set(e.data, pos); pos += e.data.length;
+  });
+  cdEntries.forEach(cd => { result.set(cd, pos); pos += cd.length; });
+  result.set(eocd, pos);
+
+  return new Blob([result], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+}
+
+function exportToExcel(targetYear) {
   const yr = targetYear || getCurrentYear();
-  // Get state for the target year
   let exportState = state;
   if (yr !== getCurrentYear()) {
     const all = loadAllYears() || {};
     if (all[yr]) exportState = { ...state, ...all[yr] };
   }
-  const wb = XLSX.utils.book_new();
   const getMonthDataFor = (m) => {
     if (!exportState.data) exportState.data = {};
     if (!exportState.data[m]) return { gastos:[], ingresos:[], retiros:0, gastosReem:0, rendimiento:0, fijosActivados:[], fijosMontos:{}, reembolsablesList:[], retirosList:[] };
@@ -4237,6 +4387,8 @@ function exportToExcel(targetYear) {
       .filter(f => (md.fijosActivados||[]).includes(f.id))
       .reduce((a,f) => a + ((md.fijosMontos||{})[f.id] != null ? md.fijosMontos[f.id] : f.monto), 0);
   };
+
+  const sheets = [];
 
   // ── Resumen Anual ──────────────────────────────────────────
   const resumenRows = [
@@ -4262,11 +4414,9 @@ function exportToExcel(targetYear) {
   });
   resumenRows.push([]);
   resumenRows.push(['TOTAL', totIng, totGF, totGV, totGF+totGV, totAho, totRend, totRet, totReem]);
-  const wsResumen = XLSX.utils.aoa_to_sheet(resumenRows);
-  wsResumen['!cols'] = [18,15,15,18,15,12,15,12,16].map(w=>({wch:w}));
-  XLSX.utils.book_append_sheet(wb, wsResumen, 'Resumen Anual');
+  sheets.push({ name: 'Resumen Anual', rows: resumenRows });
 
-  // ── One sheet per month ──────────────────────────────────────────
+  // ── Una hoja por mes ──────────────────────────────────────
   let monthsExported = 0;
   MONTHS.forEach((mes, mi) => {
     const md = getMonthDataFor(mi);
@@ -4308,32 +4458,23 @@ function exportToExcel(targetYear) {
     }
     rows.push(['RESUMEN'], ['Ingresos', ing], ['Gastos Totales', gf+gv], ['Ahorro', ing-gf-gv]);
 
-    const ws = XLSX.utils.aoa_to_sheet(rows);
-    ws['!cols'] = [18,20,28,14].map(w=>({wch:w}));
-    XLSX.utils.book_append_sheet(wb, ws, mes.substring(0,3));
+    sheets.push({ name: mes.substring(0,3), rows });
   });
 
-  // Si no hay datos en ningún mes, avisamos
   if (monthsExported === 0 && totIng === 0 && totGF === 0 && totGV === 0) {
     alert(`El año ${yr} no tiene datos para exportar.`);
     return;
   }
 
+  const blob = _makeXlsxBlob(sheets);
   const filename = `Finanzas_${yr}.xlsx`;
-  downloadXlsxFile(wb, filename);
+  downloadXlsxFile(blob, filename);
 }
 
 // Descarga universal: usa Web Share API en iOS PWA, fallback a download link
-async function downloadXlsxFile(wb, filename) {
+async function downloadXlsxFile(blob, filename) {
   try {
-    // Generar el binario del archivo
-    const wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
-    const blob = new Blob([wbout], {
-      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    });
-
     // En iOS PWA standalone, navigator.share + File es lo más confiable
-    // porque XLSX.writeFile usa <a download> que iOS PWA bloquea.
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
     const isPWA = window.navigator.standalone === true;
 
@@ -4349,13 +4490,12 @@ async function downloadXlsxFile(wb, filename) {
           return;
         }
       } catch (shareErr) {
-        // Si el usuario cancela o falla, caemos al método de descarga normal
-        if (shareErr.name === 'AbortError') return; // cancelación = no error
+        if (shareErr.name === 'AbortError') return;
         console.warn('Web Share falló, usando fallback:', shareErr);
       }
     }
 
-    // Fallback: link de descarga clásico (funciona en Safari normal y desktop)
+    // Fallback: link de descarga clásico
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -4554,43 +4694,37 @@ function bindHomeReorderHandlers() {
     if (card._homeReorderBound) return;
     card._homeReorderBound = true;
 
-    let touchMoved = false;
-    let initialTouchY = 0;
-    let initialTouchX = 0;
+    let pointerMoved = false;
+    let initialY = 0;
+    let initialX = 0;
 
-    card.addEventListener('touchstart', (e) => {
+    // ----- Pointer/Touch DOWN: start long-press timer or start drag -----
+    const onDown = (clientX, clientY, isTouch) => {
       if (_homeEditMode) {
-        // Already in edit mode → start dragging this card
-        const t = e.touches[0];
-        _homeDragState = {
-          card,
-          startY: t.clientY,
-          lastY: t.clientY
-        };
+        // Already in edit mode → start dragging
+        _homeDragState = { card, startY: clientY, lastY: clientY };
         card.classList.add('dragging');
-        if (navigator.vibrate) navigator.vibrate(15);
+        if (navigator.vibrate) try { navigator.vibrate(15); } catch(e){}
         return;
       }
-      // Not in edit mode → start long-press timer
-      touchMoved = false;
-      initialTouchY = e.touches[0].clientY;
-      initialTouchX = e.touches[0].clientX;
+      pointerMoved = false;
+      initialY = clientY;
+      initialX = clientX;
       if (_homeLongPressTimer) clearTimeout(_homeLongPressTimer);
       _homeLongPressTimer = setTimeout(() => {
-        if (!touchMoved) enterHomeEditMode();
-      }, 3000);
-    }, { passive: true });
+        if (!pointerMoved) enterHomeEditMode();
+      }, 2000);
+    };
 
-    card.addEventListener('touchmove', (e) => {
+    // ----- Pointer/Touch MOVE: drag if in edit mode, or cancel long-press -----
+    const onMove = (clientX, clientY, e) => {
       if (_homeEditMode && _homeDragState && _homeDragState.card === card) {
-        // Dragging in edit mode
-        e.preventDefault();
-        const t = e.touches[0];
-        const dy = t.clientY - _homeDragState.startY;
+        if (e && e.cancelable) e.preventDefault();
+        const dy = clientY - _homeDragState.startY;
         card.style.transform = `translateY(${dy}px) scale(1.04)`;
         // Detect what's underneath
         card.style.pointerEvents = 'none';
-        const underEl = document.elementFromPoint(t.clientX, t.clientY);
+        const underEl = document.elementFromPoint(clientX, clientY);
         card.style.pointerEvents = '';
         if (underEl) {
           const target = underEl.closest('.home-card-reorderable');
@@ -4604,27 +4738,26 @@ function bindHomeReorderHandlers() {
             } else {
               target.parentNode.insertBefore(card, target.nextSibling);
             }
-            // Reset reference position because the card moved in DOM
-            _homeDragState.startY = t.clientY;
+            _homeDragState.startY = clientY;
             card.style.transform = 'scale(1.04)';
           }
         }
         return;
       }
-      // Not in edit mode: cancel long-press if user moved finger
-      const t = e.touches[0];
-      const dx = Math.abs(t.clientX - initialTouchX);
-      const dy = Math.abs(t.clientY - initialTouchY);
-      if (dx > 10 || dy > 10) {
-        touchMoved = true;
+      // Not in edit mode → cancel long-press if user moved too much
+      const dx = Math.abs(clientX - initialX);
+      const dy2 = Math.abs(clientY - initialY);
+      if (dx > 10 || dy2 > 10) {
+        pointerMoved = true;
         if (_homeLongPressTimer) {
           clearTimeout(_homeLongPressTimer);
           _homeLongPressTimer = null;
         }
       }
-    }, { passive: false });
+    };
 
-    const endHandler = () => {
+    // ----- Pointer/Touch UP: cancel long-press or end drag -----
+    const onUp = () => {
       if (_homeLongPressTimer) {
         clearTimeout(_homeLongPressTimer);
         _homeLongPressTimer = null;
@@ -4636,8 +4769,32 @@ function bindHomeReorderHandlers() {
         saveHomeCardsOrder();
       }
     };
-    card.addEventListener('touchend', endHandler, { passive: true });
-    card.addEventListener('touchcancel', endHandler, { passive: true });
+
+    // Touch events (iOS / Android)
+    card.addEventListener('touchstart', (e) => {
+      const t = e.touches[0];
+      onDown(t.clientX, t.clientY, true);
+    }, { passive: true });
+    card.addEventListener('touchmove', (e) => {
+      const t = e.touches[0];
+      onMove(t.clientX, t.clientY, e);
+    }, { passive: false });
+    card.addEventListener('touchend', onUp, { passive: true });
+    card.addEventListener('touchcancel', onUp, { passive: true });
+
+    // Mouse events (desktop / preview)
+    card.addEventListener('mousedown', (e) => {
+      onDown(e.clientX, e.clientY, false);
+      // Track move/up on document so dragging works even if cursor leaves the card
+      const mm = (ev) => onMove(ev.clientX, ev.clientY, ev);
+      const mu = () => {
+        document.removeEventListener('mousemove', mm);
+        document.removeEventListener('mouseup', mu);
+        onUp();
+      };
+      document.addEventListener('mousemove', mm);
+      document.addEventListener('mouseup', mu);
+    });
   });
 }
 // ================== END HOME CARDS REORDER ==================
@@ -4797,6 +4954,17 @@ applySaldoVisibility();
 // Reorder de fichas en Inicio: aplicar orden guardado y bindear handlers
 applyHomeCardsOrder();
 bindHomeReorderHandlers();
+// Aplicar modo de Análisis por Categoría guardado (vs Gasto / vs Ingreso)
+try {
+  const _btnIng = document.getElementById('cat-mode-ing');
+  const _btnGas = document.getElementById('cat-mode-gas');
+  if (_btnIng && _btnGas) {
+    _btnIng.style.background = catAnalysisMode === 'ing' ? 'var(--surface)' : 'transparent';
+    _btnIng.style.color      = catAnalysisMode === 'ing' ? 'var(--text)' : 'var(--text3)';
+    _btnGas.style.background = catAnalysisMode === 'gas' ? 'var(--surface)' : 'transparent';
+    _btnGas.style.color      = catAnalysisMode === 'gas' ? 'var(--text)' : 'var(--text3)';
+  }
+} catch(e) {}
 initSwipe();
 // Inicializar sistema multi-año y actualizar label del año
 migrateToMultiYear();
@@ -5099,6 +5267,5 @@ function toggleIngSource(idx) {
 }
 // ================== END DESGLOSE INGRESOS ==================
 </script>
-
-
-</body></html>
+</body>
+</html>
